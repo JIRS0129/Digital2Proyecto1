@@ -33,9 +33,9 @@
 #define _XTAL_FREQ 500000
 #define clockwise 1
 #define anti_clockwise 0
+#include "Stepper.h"
 
 void setup (void);
-void wave_drive (char direction);
 
 void main(void) {
     setup();
@@ -55,27 +55,4 @@ void setup(void){
     // Port configs
     TRISB = 0;
     PORTB = 0;
-}
-
-void wave_drive (char direction){
-    if (direction == anti_clockwise){
-        PORTB = 0b00000001;
-        __delay_ms(2);
-        PORTB = 0b00000010;
-        __delay_ms(2);
-        PORTB = 0b00000100;
-        __delay_ms(2);
-        PORTB = 0b00001000;
-        __delay_ms(2);
-    }
-    if (direction == clockwise){
-        PORTB = 0b00001000;
-        __delay_ms(2);
-        PORTB = 0b00000100;
-        __delay_ms(2);
-        PORTB = 0b00000010;
-        __delay_ms(2);
-        PORTB = 0b00000001;
-        __delay_ms(2);
-    }
 }

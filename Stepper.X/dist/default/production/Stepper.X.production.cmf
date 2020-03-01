@@ -13,11 +13,11 @@
 %PSECTS
 $dist/default/production\Stepper.X.production.o
 cinit CODE 0 7FC 7FC 4 2
-text1 CODE 0 7B0 7B0 4C 2
-text2 CODE 0 774 774 B 2
-maintext CODE 0 77F 77F 31 2
+text1 CODE 0 7A0 7A0 5C 2
+text2 CODE 0 764 764 B 2
+maintext CODE 0 76F 76F 31 2
 cstackCOMMON COMMON 1 70 70 7 1
-$C:\Users\jorge\AppData\Local\Temp\sbbk.o
+$C:\Users\jorge\AppData\Local\Temp\sc5c.o
 end_init CODE 0 0 0 3 2
 config CONFIG 0 2007 2007 2 2
 # %UNUSED Section
@@ -34,13 +34,13 @@ BANK0 20-6F 1
 BANK1 A0-EF 1
 BANK2 110-16F 1
 BANK3 190-1EF 1
-CONST 3-773 2
+CONST 3-763 2
 CONST 800-1FFF 2
-ENTRY 3-773 2
+ENTRY 3-763 2
 ENTRY 800-1FFF 2
 IDLOC 2000-2003 2
 STACK 110-16F 1
-CODE 3-773 2
+CODE 3-763 2
 CODE 800-1FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
@@ -48,9 +48,9 @@ SFR2 100-10F 1
 SFR3 180-18F 1
 COMMON 77-7D 1
 EEDATA 2100-21FF 2
-STRCODE 3-773 2
+STRCODE 3-763 2
 STRCODE 800-1FFF 2
-STRING 3-773 2
+STRING 3-763 2
 STRING 800-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
@@ -66,42 +66,66 @@ STRING 800-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Stepper.X.production.o
-7FC cinit CODE >438:C:\Users\jorge\AppData\Local\Temp\sbbk.s
-7FC cinit CODE >441:C:\Users\jorge\AppData\Local\Temp\sbbk.s
-7FC cinit CODE >447:C:\Users\jorge\AppData\Local\Temp\sbbk.s
-7FC cinit CODE >449:C:\Users\jorge\AppData\Local\Temp\sbbk.s
-7FD cinit CODE >450:C:\Users\jorge\AppData\Local\Temp\sbbk.s
-774 text2 CODE >51:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
-774 text2 CODE >53:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
-77A text2 CODE >56:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
-77B text2 CODE >57:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
-77E text2 CODE >58:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
-7B0 text1 CODE >60:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
-7B1 text1 CODE >61:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
-7B6 text1 CODE >62:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
-7BA text1 CODE >63:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
-7BE text1 CODE >64:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
-7C2 text1 CODE >65:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
-7C6 text1 CODE >66:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
-7CA text1 CODE >67:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
-7CE text1 CODE >68:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
-7D2 text1 CODE >69:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
-7D6 text1 CODE >71:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
-7DB text1 CODE >72:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
-7DF text1 CODE >73:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
-7E3 text1 CODE >74:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
-7E7 text1 CODE >75:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
-7EB text1 CODE >76:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
-7EF text1 CODE >77:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
-7F3 text1 CODE >78:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
-7F7 text1 CODE >79:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
-7FB text1 CODE >81:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
-77F maintext CODE >40:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
-77F maintext CODE >41:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
-784 maintext CODE >43:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
-786 maintext CODE >44:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
-78C maintext CODE >45:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
-79F maintext CODE >46:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
+7FC cinit CODE >602:C:\Users\jorge\AppData\Local\Temp\sc5c.s
+7FC cinit CODE >605:C:\Users\jorge\AppData\Local\Temp\sc5c.s
+7FC cinit CODE >611:C:\Users\jorge\AppData\Local\Temp\sc5c.s
+7FC cinit CODE >613:C:\Users\jorge\AppData\Local\Temp\sc5c.s
+7FD cinit CODE >614:C:\Users\jorge\AppData\Local\Temp\sc5c.s
+764 text2 CODE >51:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
+764 text2 CODE >53:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
+76A text2 CODE >56:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
+76B text2 CODE >57:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
+76E text2 CODE >58:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
+7A0 text1 CODE >6:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
+7A1 text1 CODE >7:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
+7A6 text1 CODE >8:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
+7A9 text1 CODE >9:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
+7AA text1 CODE >10:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
+7AB text1 CODE >11:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
+7AC text1 CODE >12:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
+7B0 text1 CODE >13:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
+7B3 text1 CODE >14:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
+7B4 text1 CODE >15:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
+7B5 text1 CODE >16:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
+7B6 text1 CODE >17:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
+7BA text1 CODE >18:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
+7BD text1 CODE >19:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
+7BE text1 CODE >20:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
+7BF text1 CODE >21:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
+7C0 text1 CODE >22:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
+7C4 text1 CODE >23:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
+7C7 text1 CODE >24:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
+7C8 text1 CODE >25:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
+7C9 text1 CODE >26:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
+7CA text1 CODE >27:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
+7CE text1 CODE >29:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
+7D3 text1 CODE >30:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
+7D6 text1 CODE >31:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
+7D7 text1 CODE >32:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
+7D8 text1 CODE >33:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
+7D9 text1 CODE >34:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
+7DD text1 CODE >35:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
+7E0 text1 CODE >36:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
+7E1 text1 CODE >37:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
+7E2 text1 CODE >38:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
+7E3 text1 CODE >39:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
+7E7 text1 CODE >40:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
+7EA text1 CODE >41:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
+7EB text1 CODE >42:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
+7EC text1 CODE >43:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
+7ED text1 CODE >44:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
+7F1 text1 CODE >45:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
+7F4 text1 CODE >46:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
+7F5 text1 CODE >47:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
+7F6 text1 CODE >48:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
+7F7 text1 CODE >49:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
+7FB text1 CODE >51:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
+76F maintext CODE >40:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
+76F maintext CODE >41:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
+774 maintext CODE >43:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
+776 maintext CODE >44:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
+77C maintext CODE >45:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
+78F maintext CODE >46:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -124,32 +148,32 @@ __size_of_wave_drive 0 0 ABS 0 - dist/default/production\Stepper.X.production.o
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 main@i 75 0 COMMON 1 cstackCOMMON dist/default/production\Stepper.X.production.o
 __Hstrings 0 0 ABS 0 strings -
-___sp 0 0 STACK 2 stack C:\Users\jorge\AppData\Local\Temp\sbbk.o
-_main EFE 0 CODE 0 maintext dist/default/production\Stepper.X.production.o
+___sp 0 0 STACK 2 stack C:\Users\jorge\AppData\Local\Temp\sc5c.o
+_main EDE 0 CODE 0 maintext dist/default/production\Stepper.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\Stepper.X.production.o
-start 0 0 CODE 0 init C:\Users\jorge\AppData\Local\Temp\sbbk.o
+start 0 0 CODE 0 init C:\Users\jorge\AppData\Local\Temp\sc5c.o
 __CFG_BOREN$OFF 0 0 ABS 0 - dist/default/production\Stepper.X.production.o
 __size_of_main 0 0 ABS 0 - dist/default/production\Stepper.X.production.o
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab C:\Users\jorge\AppData\Local\Temp\sbbk.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\jorge\AppData\Local\Temp\sbbk.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\jorge\AppData\Local\Temp\sbbk.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\jorge\AppData\Local\Temp\sbbk.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\jorge\AppData\Local\Temp\sbbk.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\jorge\AppData\Local\Temp\sbbk.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\jorge\AppData\Local\Temp\sc5c.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\jorge\AppData\Local\Temp\sc5c.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\jorge\AppData\Local\Temp\sc5c.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\jorge\AppData\Local\Temp\sc5c.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\jorge\AppData\Local\Temp\sc5c.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\jorge\AppData\Local\Temp\sc5c.o
 _OSCCONbits 8F 0 ABS 0 - dist/default/production\Stepper.X.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\Stepper.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
 __Hclrtext 0 0 ABS 0 clrtext -
 __Lmaintext 0 0 ABS 0 maintext -
-___stackhi 0 0 ABS 0 - C:\Users\jorge\AppData\Local\Temp\sbbk.o
-___stacklo 0 0 ABS 0 - C:\Users\jorge\AppData\Local\Temp\sbbk.o
+___stackhi 0 0 ABS 0 - C:\Users\jorge\AppData\Local\Temp\sc5c.o
+___stacklo 0 0 ABS 0 - C:\Users\jorge\AppData\Local\Temp\sc5c.o
 __size_of_setup 0 0 ABS 0 - dist/default/production\Stepper.X.production.o
 wave_drive@direction 71 0 COMMON 1 cstackCOMMON dist/default/production\Stepper.X.production.o
 __CFG_FCMEN$OFF 0 0 ABS 0 - dist/default/production\Stepper.X.production.o
 __CFG_MCLRE$OFF 0 0 ABS 0 - dist/default/production\Stepper.X.production.o
 start_initialization FF8 0 CODE 0 cinit dist/default/production\Stepper.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\jorge\AppData\Local\Temp\sbbk.o
+___int_sp 0 0 STACK 2 stack C:\Users\jorge\AppData\Local\Temp\sc5c.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -184,6 +208,10 @@ __Lsfr2 0 0 ABS 0 sfr2 -
 __Lsfr3 0 0 ABS 0 sfr3 -
 __Ltext 0 0 ABS 0 text -
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
+_RB0 30 0 ABS 0 - dist/default/production\Stepper.X.production.o
+_RB1 31 0 ABS 0 - dist/default/production\Stepper.X.production.o
+_RB2 32 0 ABS 0 - dist/default/production\Stepper.X.production.o
+_RB3 33 0 ABS 0 - dist/default/production\Stepper.X.production.o
 __S0 2009 0 ABS 0 - -
 __S1 77 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
@@ -191,9 +219,9 @@ __S3 0 0 ABS 0 - -
 __CFG_BOR4V$BOR40V 0 0 ABS 0 - dist/default/production\Stepper.X.production.o
 __CFG_FOSC$INTRC_NOCLKOUT 0 0 ABS 0 - dist/default/production\Stepper.X.production.o
 __Lintentry 0 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\jorge\AppData\Local\Temp\sbbk.o
-_wave_drive F60 0 CODE 0 text1 dist/default/production\Stepper.X.production.o
-__pmaintext EFE 0 CODE 0 maintext dist/default/production\Stepper.X.production.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\jorge\AppData\Local\Temp\sc5c.o
+_wave_drive F40 0 CODE 0 text1 dist/default/production\Stepper.X.production.o
+__pmaintext EDE 0 CODE 0 maintext dist/default/production\Stepper.X.production.o
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 400E 0 CONFIG 0 config -
 __CFG_CP$OFF 0 0 ABS 0 - dist/default/production\Stepper.X.production.o
@@ -210,8 +238,8 @@ end_of_initialization FF8 0 CODE 0 cinit dist/default/production\Stepper.X.produ
 __Hintentry 0 0 CODE 0 intentry -
 __Lstrings 0 0 ABS 0 strings -
 __Hreset_vec 0 0 CODE 0 reset_vec -
-__ptext1 F60 0 CODE 0 text1 dist/default/production\Stepper.X.production.o
-__ptext2 EE8 0 CODE 0 text2 dist/default/production\Stepper.X.production.o
+__ptext1 F40 0 CODE 0 text1 dist/default/production\Stepper.X.production.o
+__ptext2 EC8 0 CODE 0 text2 dist/default/production\Stepper.X.production.o
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 __Lreset_vec 0 0 CODE 0 reset_vec -
@@ -220,14 +248,14 @@ __Lfunctab 0 0 ENTRY 0 functab -
 __Lclrtext 0 0 ABS 0 clrtext -
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\Stepper.X.production.o
 __Hend_init 6 0 CODE 0 end_init -
-__end_of_main F60 0 CODE 0 maintext dist/default/production\Stepper.X.production.o
+__end_of_main F40 0 CODE 0 maintext dist/default/production\Stepper.X.production.o
 _PORTB 6 0 ABS 0 - dist/default/production\Stepper.X.production.o
 _TRISB 86 0 ABS 0 - dist/default/production\Stepper.X.production.o
-__end_of_setup EFE 0 CODE 0 text2 dist/default/production\Stepper.X.production.o
+__end_of_setup EDE 0 CODE 0 text2 dist/default/production\Stepper.X.production.o
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
 __CFG_CPD$OFF 0 0 ABS 0 - dist/default/production\Stepper.X.production.o
-_setup EE8 0 CODE 0 text2 dist/default/production\Stepper.X.production.o
+_setup EC8 0 CODE 0 text2 dist/default/production\Stepper.X.production.o
 __initialization FF8 0 CODE 0 cinit dist/default/production\Stepper.X.production.o
 __CFG_PWRTE$OFF 0 0 ABS 0 - dist/default/production\Stepper.X.production.o
 __CFG_WRT$OFF 0 0 ABS 0 - dist/default/production\Stepper.X.production.o
@@ -257,9 +285,9 @@ __CFG_WRT$OFF 0 0 ABS 0 - dist/default/production\Stepper.X.production.o
 # All other numeric quantities are in decimal.
 %SEGMENTS
 cinit 0 7FC FF8 4 2
-text1 0 7B0 F60 4C 2
-text2 0 774 EE8 B 2
-maintext 0 77F EFE 31 2
+text1 0 7A0 F40 5C 2
+text2 0 764 EC8 B 2
+maintext 0 76F EDE 31 2
 cstackCOMMON 1 70 70 7 1
 reset_vec 0 0 0 3 2
 config 0 2007 400E 2 2

@@ -1,2 +1,3 @@
 build/default/production/mainStepper.p1:  \
-mainStepper.c 
+mainStepper.c  \
+Stepper.h 

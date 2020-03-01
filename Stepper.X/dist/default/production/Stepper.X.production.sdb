@@ -15,7 +15,7 @@
 [v _main main `(v  1 e 1 0 ]
 "51
 [v _setup setup `(v  1 e 1 0 ]
-"60
+"6 C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
 [v _wave_drive wave_drive `(v  1 e 1 0 ]
 "228 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
 [v _PORTB PORTB `VEuc  1 e 1 @6 ]
@@ -35,6 +35,14 @@
 ]
 [u S48 . 1 `S37 1 . 1 0 `S43 1 . 1 0 ]
 [v _OSCCONbits OSCCONbits `VES48  1 e 1 @143 ]
+"4103
+[v _RB0 RB0 `VEb  1 e 0 @48 ]
+"4106
+[v _RB1 RB1 `VEb  1 e 0 @49 ]
+"4109
+[v _RB2 RB2 `VEb  1 e 0 @50 ]
+"4112
+[v _RB3 RB3 `VEb  1 e 0 @51 ]
 "40 C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
 [v _main main `(v  1 e 1 0 ]
 {
@@ -42,15 +50,15 @@
 [v main@i i `i  1 a 2 5 ]
 "49
 } 0
-"60
+"6 C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
 [v _wave_drive wave_drive `(v  1 e 1 0 ]
 {
 [v wave_drive@direction direction `uc  1 a 1 wreg ]
 [v wave_drive@direction direction `uc  1 a 1 wreg ]
 [v wave_drive@direction direction `uc  1 a 1 1 ]
-"81
-} 0
 "51
+} 0
+"51 C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
 [v _setup setup `(v  1 e 1 0 ]
 {
 "58
