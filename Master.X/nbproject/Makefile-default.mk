@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=mainMaster.c PWM.c Stepper.c
+SOURCEFILES_QUOTED_IF_SPACED=mainMaster.c PWM.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/mainMaster.p1 ${OBJECTDIR}/PWM.p1 ${OBJECTDIR}/Stepper.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/mainMaster.p1.d ${OBJECTDIR}/PWM.p1.d ${OBJECTDIR}/Stepper.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/mainMaster.p1 ${OBJECTDIR}/PWM.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/mainMaster.p1.d ${OBJECTDIR}/PWM.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/mainMaster.p1 ${OBJECTDIR}/PWM.p1 ${OBJECTDIR}/Stepper.p1
+OBJECTFILES=${OBJECTDIR}/mainMaster.p1 ${OBJECTDIR}/PWM.p1
 
 # Source Files
-SOURCEFILES=mainMaster.c PWM.c Stepper.c
+SOURCEFILES=mainMaster.c PWM.c
 
 
 
@@ -110,14 +110,6 @@ ${OBJECTDIR}/PWM.p1: PWM.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/PWM.d ${OBJECTDIR}/PWM.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/PWM.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/Stepper.p1: Stepper.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/Stepper.p1.d 
-	@${RM} ${OBJECTDIR}/Stepper.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1    -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/Stepper.p1 Stepper.c 
-	@-${MV} ${OBJECTDIR}/Stepper.d ${OBJECTDIR}/Stepper.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/Stepper.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
 else
 ${OBJECTDIR}/mainMaster.p1: mainMaster.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -134,14 +126,6 @@ ${OBJECTDIR}/PWM.p1: PWM.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c    -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/PWM.p1 PWM.c 
 	@-${MV} ${OBJECTDIR}/PWM.d ${OBJECTDIR}/PWM.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/PWM.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/Stepper.p1: Stepper.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/Stepper.p1.d 
-	@${RM} ${OBJECTDIR}/Stepper.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c    -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/Stepper.p1 Stepper.c 
-	@-${MV} ${OBJECTDIR}/Stepper.d ${OBJECTDIR}/Stepper.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/Stepper.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 
