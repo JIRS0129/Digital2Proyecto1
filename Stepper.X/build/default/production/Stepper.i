@@ -2638,50 +2638,85 @@ void wave_drive (char direction, int steps);
 
 
 void wave_drive (char direction, int steps){
+    int count = 0;
     for (int i = 0; i <= steps; i++){
-        if (direction == 0){
-            RB1 = 0;
-            RB2 = 0;
-            RB3 = 0;
-            RB0 = 1;
-            _delay((unsigned long)((2)*(500000/4000.0)));
-            RB0 = 0;
-            RB2 = 0;
-            RB3 = 0;
-            RB1 = 1;
-            _delay((unsigned long)((2)*(500000/4000.0)));
-            RB0 = 0;
-            RB1 = 0;
-            RB3 = 0;
-            RB2 = 1;
-            _delay((unsigned long)((2)*(500000/4000.0)));
-            RB0 = 0;
-            RB1 = 0;
-            RB2 = 0;
-            RB3 = 1;
-            _delay((unsigned long)((2)*(500000/4000.0)));
-        }
         if (direction == 1){
-            RB0 = 0;
-            RB1 = 0;
-            RB2 = 0;
-            RB3 = 1;
-            _delay((unsigned long)((2)*(500000/4000.0)));
-            RB0 = 0;
-            RB1 = 0;
-            RB3 = 0;
-            RB2 = 1;
-            _delay((unsigned long)((2)*(500000/4000.0)));
-            RB0 = 0;
-            RB2 = 0;
-            RB3 = 0;
-            RB1 = 1;
-            _delay((unsigned long)((2)*(500000/4000.0)));
-            RB1 = 0;
-            RB2 = 0;
-            RB3 = 0;
-            RB0 = 1;
-            _delay((unsigned long)((2)*(500000/4000.0)));
+            switch (count){
+                case 0:
+                    count += 1;
+                    break;
+                case 1:
+                    RB1 = 0;
+                    RB2 = 0;
+                    RB3 = 0;
+                    RB0 = 1;
+                    _delay((unsigned long)((2)*(500000/4000.0)));
+                    count += 1;
+                    break;
+                case 2:
+                    RB0 = 0;
+                    RB2 = 0;
+                    RB3 = 0;
+                    RB1 = 1;
+                    _delay((unsigned long)((2)*(500000/4000.0)));
+                    count += 1;
+                    break;
+                case 3:
+                    RB0 = 0;
+                    RB1 = 0;
+                    RB3 = 0;
+                    RB2 = 1;
+                    _delay((unsigned long)((2)*(500000/4000.0)));
+                    count += 1;
+                    break;
+                case 4:
+                    RB0 = 0;
+                    RB1 = 0;
+                    RB2 = 0;
+                    RB3 = 1;
+                    _delay((unsigned long)((2)*(500000/4000.0)));
+                    count = 1;
+                    break;
+            }
+        }
+        if (direction == 0){
+            switch (count){
+                case 0:
+                    count += 1;
+                    break;
+                case 1:
+                    RB1 = 0;
+                    RB2 = 0;
+                    RB0 = 0;
+                    RB3 = 1;
+                    _delay((unsigned long)((2)*(500000/4000.0)));
+                    count += 1;
+                    break;
+                case 2:
+                    RB0 = 0;
+                    RB1 = 0;
+                    RB3 = 0;
+                    RB2 = 1;
+                    _delay((unsigned long)((2)*(500000/4000.0)));
+                    count += 1;
+                    break;
+                case 3:
+                    RB0 = 0;
+                    RB2 = 0;
+                    RB3 = 0;
+                    RB1 = 1;
+                    _delay((unsigned long)((2)*(500000/4000.0)));
+                    count += 1;
+                    break;
+                case 4:
+                    RB3 = 0;
+                    RB1 = 0;
+                    RB2 = 0;
+                    RB0 = 1;
+                    _delay((unsigned long)((2)*(500000/4000.0)));
+                    count = 1;
+                    break;
+            }
         }
     }
 }

@@ -33,6 +33,5 @@
 
 void wave_drive (char direction, int steps);
 
-
 #endif	/* STEPPER_H */
 

@@ -31,8 +31,6 @@
 
 #include <xc.h>
 #define _XTAL_FREQ 500000
-#define clockwise 1
-#define anti_clockwise 0
 #include "Stepper.h"
 
 void setup (void);
@@ -40,8 +38,9 @@ void setup (void);
 void main(void) {
     setup();
     while(1){
-        wave_drive(anti_clockwise, 510);
-        __delay_ms(2000);
+        wave_drive (clockwise, 1024);
+        wave_drive (anti_clockwise, 512);
+        
     }
     return;
 }

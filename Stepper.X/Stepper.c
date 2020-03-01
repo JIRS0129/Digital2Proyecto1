@@ -4,50 +4,85 @@
 #include "Stepper.h"
 
 void wave_drive (char direction, int steps){
+    int count = 0;
     for (int i = 0; i <= steps; i++){
-        if (direction == anti_clockwise){
-            in2 = 0;
-            in3 = 0;
-            in4 = 0;
-            in1 = 1;
-            __delay_ms(2);
-            in1 = 0;
-            in3 = 0;
-            in4 = 0;
-            in2 = 1;
-            __delay_ms(2);
-            in1 = 0;
-            in2 = 0;
-            in4 = 0;
-            in3 = 1;
-            __delay_ms(2);
-            in1 = 0;
-            in2 = 0;
-            in3 = 0;
-            in4 = 1;
-            __delay_ms(2);
-        }
         if (direction == clockwise){
-            in1 = 0;
-            in2 = 0;
-            in3 = 0;
-            in4 = 1;
-            __delay_ms(2);
-            in1 = 0;
-            in2 = 0;
-            in4 = 0;
-            in3 = 1;
-            __delay_ms(2);
-            in1 = 0;
-            in3 = 0;
-            in4 = 0;
-            in2 = 1;
-            __delay_ms(2);
-            in2 = 0;
-            in3 = 0;
-            in4 = 0;
-            in1 = 1;
-            __delay_ms(2);
+            switch (count){
+                case 0:
+                    count += 1;
+                    break;
+                case 1:
+                    in2 = 0;
+                    in3 = 0;
+                    in4 = 0;
+                    in1 = 1;
+                    __delay_ms(2);
+                    count += 1;
+                    break;
+                case 2:
+                    in1 = 0;
+                    in3 = 0;
+                    in4 = 0;
+                    in2 = 1;
+                    __delay_ms(2);
+                    count += 1;
+                    break;
+                case 3:
+                    in1 = 0;
+                    in2 = 0;
+                    in4 = 0;
+                    in3 = 1;
+                    __delay_ms(2);
+                    count += 1;
+                    break;
+                case 4:
+                    in1 = 0;
+                    in2 = 0;
+                    in3 = 0;
+                    in4 = 1;
+                    __delay_ms(2);
+                    count = 1;
+                    break;
+            }
+        }
+        if (direction == anti_clockwise){
+            switch (count){
+                case 0:
+                    count += 1;
+                    break;
+                case 1:
+                    in2 = 0;
+                    in3 = 0;
+                    in1 = 0;
+                    in4 = 1;
+                    __delay_ms(2);
+                    count += 1;
+                    break;
+                case 2:
+                    in1 = 0;
+                    in2 = 0;
+                    in4 = 0;
+                    in3 = 1;
+                    __delay_ms(2);
+                    count += 1;
+                    break;
+                case 3:
+                    in1 = 0;
+                    in3 = 0;
+                    in4 = 0;
+                    in2 = 1;
+                    __delay_ms(2);
+                    count += 1;
+                    break;
+                case 4:
+                    in4 = 0;
+                    in2 = 0;
+                    in3 = 0;
+                    in1 = 1;
+                    __delay_ms(2);
+                    count = 1;
+                    break;
+            }
         }
     }
 }
