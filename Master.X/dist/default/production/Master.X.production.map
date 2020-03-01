@@ -1,13 +1,13 @@
-Microchip MPLAB XC8 Compiler V2.00 ()
+Microchip MPLAB XC8 Compiler V2.10 ()
 
 Linker command line:
 
--W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v2.00\pic\dat\en_msgs.txt \
+-W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v2.10\pic\dat\en_msgs.txt \
   -cs -h+dist/default/production\Master.X.production.sym \
   --cmf=dist/default/production\Master.X.production.cmf -z -Q16F887 \
-  -oC:\Users\JIRS0129\AppData\Local\Temp\s9fo.2 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\jorge\AppData\Local\Temp\s77g.2 --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/Master.X.production.map -E1 -ver=XC8 \
-  --acfsm=1493 -ASTACK=0110h-016fh -pstack=STACK -ACODE=00h-07FFhx4 \
+  --acfsm=1493 -ASTACK=0110h-016Fh -pstack=STACK -ACODE=00h-07FFhx4 \
   -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 -ACONST=00h-0FFhx32 \
   -AENTRY=00h-0FFhx32 -ACOMMON=070h-07Fh -ABANK0=020h-06Fh \
   -ABANK1=0A0h-0EFh -ABANK2=0110h-016Fh -ABANK3=0190h-01EFh \
@@ -18,7 +18,7 @@ Linker command line:
   -pfunctab=ENTRY -ACONFIG=02007h-02008h -pconfig=CONFIG -DCONFIG=2 \
   -AIDLOC=02000h-02003h -pidloc=IDLOC -DIDLOC=2 -AEEDATA=00h-0FFh/02100h \
   -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 \
-  -DENTRY=2 -k C:\Users\JIRS0129\AppData\Local\Temp\s9fo.o \
+  -DENTRY=2 -k C:\Users\jorge\AppData\Local\Temp\s77g.o \
   dist/default/production\Master.X.production.o 
 
 Object code version is 3.11
@@ -28,16 +28,16 @@ Machine type is 16F887
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\JIRS0129\AppData\Local\Temp\s9fo.o
+C:\Users\jorge\AppData\Local\Temp\s77g.o
                 end_init                              0        0        3        0       0
                 config                             2007     2007        2     400E       0
 dist/default/production\Master.X.production.o
                 cinit                               7FC      7FC        4      FF8       0
-                text4                               78B      78B       71      F16       0
-                text3                               759      759       32      EB2       0
-                text2                               739      739       20      E72       0
-                text1                               6FF      6FF       1B      DFE       0
-                maintext                            71A      71A       1F      E34       0
+                text4                               795      795       67      F2A       0
+                text3                               764      764       31      EC8       0
+                text2                               745      745       1F      E8A       0
+                text1                               70E      70E       1B      E1C       0
+                maintext                            729      729       1C      E52       0
                 cstackCOMMON                         70       70        D       70       1
 
 TOTAL           Name                               Link     Load   Length     Space
@@ -46,11 +46,11 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   CODE           
                 end_init                              0        0        3         0
                 cinit                               7FC      7FC        4         0
-                text4                               78B      78B       71         0
-                text3                               759      759       32         0
-                text2                               739      739       20         0
-                text1                               6FF      6FF       1B         0
-                maintext                            71A      71A       1F         0
+                text4                               795      795       67         0
+                text3                               764      764       31         0
+                text2                               745      745       1F         0
+                text1                               70E      70E       1B         0
+                maintext                            729      729       1C         0
 
         CLASS   STRCODE        
 
@@ -97,11 +97,11 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
 
                 reset_vec                      000000  000003  000003         0       0  CODE        2
                 cstackCOMMON                   000070  00000D  00007D        70       1  COMMON      1
-                text1                          0006FF  00001B  00071A       DFE       0  CODE        2
-                maintext                       00071A  00001F  000739       E34       0  CODE        2
-                text2                          000739  000020  000759       E72       0  CODE        2
-                text3                          000759  000032  00078B       EB2       0  CODE        2
-                text4                          00078B  000071  0007FC       F16       0  CODE        2
+                text1                          00070E  00001B  000729       E1C       0  CODE        2
+                maintext                       000729  00001C  000745       E52       0  CODE        2
+                text2                          000745  00001F  000764       E8A       0  CODE        2
+                text3                          000764  000031  000795       EC8       0  CODE        2
+                text4                          000795  000067  0007FC       F2A       0  CODE        2
                 cinit                          0007FC  000004  000800       FF8       0  CODE        2
                 config                         002007  000002  002009      400E       0  CONFIG      2
 
@@ -113,13 +113,13 @@ UNUSED ADDRESS RANGES
         BANK1            00A0-00EF             50           1
         BANK2            0110-016F             60           1
         BANK3            0190-01EF             60           1
-        CODE             0003-06FE            6FC           2
+        CODE             0003-070D            70B           2
                          0800-1FFF            800
         COMMON           007D-007D              1           1
-        CONST            0003-06FE            100           2
+        CONST            0003-070D            100           2
                          0800-1FFF            100
         EEDATA           2100-21FF            100           2
-        ENTRY            0003-06FE            100           2
+        ENTRY            0003-070D            100           2
                          0800-1FFF            100
         IDLOC            2000-2003              4           2
         RAM              0020-006F             50           1
@@ -131,9 +131,9 @@ UNUSED ADDRESS RANGES
         SFR2             0100-010F             10           1
         SFR3             0180-018F             10           1
         STACK            0110-016F             60           1
-        STRCODE          0003-06FE            6FC           2
+        STRCODE          0003-070D            70B           2
                          0800-1FFF           1800
-        STRING           0003-06FE            100           2
+        STRING           0003-070D            100           2
                          0800-1FFF            100
 
                                   Symbol Table
@@ -234,7 +234,7 @@ __S0                      (abs)        2009
 __S1                      (abs)        007D
 __S2                      (abs)        0000
 __S3                      (abs)        0000
-___awdiv                  text4        078B
+___awdiv                  text4        0795
 ___awdiv@counter          cstackCOMMON 0075
 ___awdiv@dividend         cstackCOMMON 0072
 ___awdiv@divisor          cstackCOMMON 0070
@@ -243,28 +243,30 @@ ___awdiv@sign             cstackCOMMON 0076
 ___int_sp                 stack        0000
 ___latbits                (abs)        0002
 ___sp                     stack        0000
+___stackhi                (abs)        0000
+___stacklo                (abs)        0000
 __end_of___awdiv          text4        07FC
 __end_of__initialization  cinit        07FC
-__end_of_configPWM        text2        0759
-__end_of_main             maintext     0739
-__end_of_setWidth         text3        078B
-__end_of_setup            text1        071A
+__end_of_configPWM        text2        0764
+__end_of_main             maintext     0745
+__end_of_setWidth         text3        0795
+__end_of_setup            text1        0729
 __initialization          cinit        07FC
 __pcstackCOMMON           cstackCOMMON 0070
-__pmaintext               maintext     071A
-__ptext1                  text1        06FF
-__ptext2                  text2        0739
-__ptext3                  text3        0759
-__ptext4                  text4        078B
+__pmaintext               maintext     0729
+__ptext1                  text1        070E
+__ptext2                  text2        0745
+__ptext3                  text3        0764
+__ptext4                  text4        0795
 __size_of___awdiv         (abs)        0000
 __size_of_configPWM       (abs)        0000
 __size_of_main            (abs)        0000
 __size_of_setWidth        (abs)        0000
 __size_of_setup           (abs)        0000
-_configPWM                text2        0739
-_main                     maintext     071A
-_setWidth                 text3        0759
-_setup                    text1        06FF
+_configPWM                text2        0745
+_main                     maintext     0729
+_setWidth                 text3        0764
+_setup                    text1        070E
 btemp                     (abs)        007E
 end_of_initialization     cinit        07FC
 intlevel0                 functab      0000
@@ -275,8 +277,6 @@ intlevel4                 functab      0000
 intlevel5                 functab      0000
 reset_vec                 reset_vec    0000
 setWidth@time             cstackCOMMON 007C
-stackhi                   (abs)        0000
-stacklo                   (abs)        0000
 start                     init         0000
 start_initialization      cinit        07FC
 wtemp0                    (abs)        007E
@@ -407,7 +407,7 @@ Total ram usage:        4 bytes
 
  *************** function ___awdiv *****************
  Defined at:
-		line 5 in file "C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\awdiv.c"
+		line 5 in file "C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\awdiv.c"
  Parameters:    Size  Location     Type
   divisor         2    0[COMMON] int 
   dividend        2    2[COMMON] int 
@@ -441,22 +441,22 @@ Total ram usage:        9 bytes
 MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
+C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\awdiv.c
+		___awdiv       		CODE           	0795	0000	104
+
+C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\awdiv.c estimated size: 104
+
 mainMaster.c
-		_main          		CODE           	071A	0000	32
-		_setup         		CODE           	06FF	0000	28
+		_main          		CODE           	0729	0000	29
+		_setup         		CODE           	070E	0000	28
 
-mainMaster.c estimated size: 60
-
-C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\awdiv.c
-		___awdiv       		CODE           	078B	0000	114
-
-C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\awdiv.c estimated size: 114
+mainMaster.c estimated size: 57
 
 PWM.c
-		_setWidth      		CODE           	0759	0000	51
-		_configPWM     		CODE           	0739	0000	33
+		_setWidth      		CODE           	0764	0000	50
+		_configPWM     		CODE           	0745	0000	32
 
-PWM.c estimated size: 84
+PWM.c estimated size: 82
 
 shared
 		__initialization		CODE           	07FC	0000	1

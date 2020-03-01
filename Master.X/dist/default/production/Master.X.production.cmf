@@ -11,17 +11,17 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\JIRS0129\AppData\Local\Temp\s9fo.o
-end_init CODE 0 0 0 3 2
-config CONFIG 0 2007 2007 2 2
 $dist/default/production\Master.X.production.o
 cinit CODE 0 7FC 7FC 4 2
-text1 CODE 0 6FF 6FF 1B 2
-text2 CODE 0 739 739 20 2
-text3 CODE 0 759 759 32 2
-text4 CODE 0 78B 78B 71 2
-maintext CODE 0 71A 71A 1F 2
+text1 CODE 0 70E 70E 1B 2
+text2 CODE 0 745 745 1F 2
+text3 CODE 0 764 764 31 2
+text4 CODE 0 795 795 67 2
+maintext CODE 0 729 729 1C 2
 cstackCOMMON COMMON 1 70 70 D 1
+$C:\Users\jorge\AppData\Local\Temp\s77g.o
+end_init CODE 0 0 0 3 2
+config CONFIG 0 2007 2007 2 2
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
 # is described on a single line as follows:
@@ -36,13 +36,13 @@ BANK0 20-6F 1
 BANK1 A0-EF 1
 BANK2 110-16F 1
 BANK3 190-1EF 1
-CONST 3-6FE 2
+CONST 3-70D 2
 CONST 800-1FFF 2
-ENTRY 3-6FE 2
+ENTRY 3-70D 2
 ENTRY 800-1FFF 2
 IDLOC 2000-2003 2
 STACK 110-16F 1
-CODE 3-6FE 2
+CODE 3-70D 2
 CODE 800-1FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
@@ -50,9 +50,9 @@ SFR2 100-10F 1
 SFR3 180-18F 1
 COMMON 7D-7D 1
 EEDATA 2100-21FF 2
-STRCODE 3-6FE 2
+STRCODE 3-70D 2
 STRCODE 800-1FFF 2
-STRING 3-6FE 2
+STRING 3-70D 2
 STRING 800-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
@@ -68,89 +68,78 @@ STRING 800-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Master.X.production.o
-7FC cinit CODE >621:C:\Users\JIRS0129\AppData\Local\Temp\s9fo.
-7FC cinit CODE >624:C:\Users\JIRS0129\AppData\Local\Temp\s9fo.
-7FC cinit CODE >630:C:\Users\JIRS0129\AppData\Local\Temp\s9fo.
-7FC cinit CODE >632:C:\Users\JIRS0129\AppData\Local\Temp\s9fo.
-7FD cinit CODE >633:C:\Users\JIRS0129\AppData\Local\Temp\s9fo.
-78B text4 CODE >5:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\awdiv.c
-78B text4 CODE >13:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\awdiv.c
-78C text4 CODE >14:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\awdiv.c
-790 text4 CODE >15:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\awdiv.c
-795 text4 CODE >16:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\awdiv.c
-798 text4 CODE >17:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\awdiv.c
-798 text4 CODE >18:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\awdiv.c
-79C text4 CODE >19:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\awdiv.c
-7A1 text4 CODE >20:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\awdiv.c
-7A6 text4 CODE >21:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\awdiv.c
-7A6 text4 CODE >22:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\awdiv.c
-7A8 text4 CODE >23:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\awdiv.c
-7AE text4 CODE >24:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\awdiv.c
-7B0 text4 CODE >25:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\awdiv.c
-7B1 text4 CODE >26:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\awdiv.c
-7B8 text4 CODE >27:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\awdiv.c
-7BD text4 CODE >25:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\awdiv.c
-7BD text4 CODE >28:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\awdiv.c
-7C3 text4 CODE >29:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\awdiv.c
-7C3 text4 CODE >30:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\awdiv.c
-7CA text4 CODE >31:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\awdiv.c
-7D4 text4 CODE >32:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\awdiv.c
-7DA text4 CODE >33:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\awdiv.c
-7DC text4 CODE >34:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\awdiv.c
-7DC text4 CODE >35:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\awdiv.c
-7E3 text4 CODE >36:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\awdiv.c
-7EB text4 CODE >37:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\awdiv.c
-7EB text4 CODE >38:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\awdiv.c
-7F0 text4 CODE >39:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\awdiv.c
-7F6 text4 CODE >40:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\awdiv.c
-7FB text4 CODE >41:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\awdiv.c
-759 text3 CODE >21:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\PWM.c
-75A text3 CODE >22:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\PWM.c
-75E text3 CODE >23:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\PWM.c
-761 text3 CODE >24:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\PWM.c
-762 text3 CODE >25:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\PWM.c
-765 text3 CODE >26:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\PWM.c
-765 text3 CODE >27:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\PWM.c
-769 text3 CODE >28:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\PWM.c
-76A text3 CODE >29:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\PWM.c
-76B text3 CODE >30:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\PWM.c
-76D text3 CODE >31:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\PWM.c
-76D text3 CODE >32:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\PWM.c
-772 text3 CODE >33:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\PWM.c
-786 text3 CODE >34:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\PWM.c
-78A text3 CODE >35:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\PWM.c
-739 text2 CODE >8:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\PWM.c
-739 text2 CODE >10:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\PWM.c
-73C text2 CODE >11:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\PWM.c
-73E text2 CODE >12:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\PWM.c
-744 text2 CODE >13:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\PWM.c
-74A text2 CODE >14:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\PWM.c
-74D text2 CODE >15:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\PWM.c
-74F text2 CODE >16:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\PWM.c
-750 text2 CODE >17:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\PWM.c
-755 text2 CODE >18:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\PWM.c
-758 text2 CODE >19:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\PWM.c
-6FF text1 CODE >63:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\mainMaster.c
-6FF text1 CODE >65:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\mainMaster.c
-702 text1 CODE >66:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\mainMaster.c
-703 text1 CODE >67:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\mainMaster.c
-706 text1 CODE >68:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\mainMaster.c
-707 text1 CODE >69:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\mainMaster.c
-70A text1 CODE >70:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\mainMaster.c
-70B text1 CODE >72:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\mainMaster.c
-711 text1 CODE >73:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\mainMaster.c
-716 text1 CODE >74:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\mainMaster.c
-719 text1 CODE >75:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\mainMaster.c
-71A maintext CODE >49:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\mainMaster.c
-71A maintext CODE >50:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\mainMaster.c
-720 maintext CODE >51:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\mainMaster.c
-720 maintext CODE >52:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\mainMaster.c
-726 maintext CODE >53:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\mainMaster.c
-72C maintext CODE >54:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\mainMaster.c
-72D maintext CODE >55:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\mainMaster.c
-734 maintext CODE >56:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\mainMaster.c
-735 maintext CODE >57:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\mainMaster.c
-736 maintext CODE >59:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Master.X\mainMaster.c
+7FC cinit CODE >621:C:\Users\jorge\AppData\Local\Temp\s77g.s
+7FC cinit CODE >624:C:\Users\jorge\AppData\Local\Temp\s77g.s
+7FC cinit CODE >630:C:\Users\jorge\AppData\Local\Temp\s77g.s
+7FC cinit CODE >632:C:\Users\jorge\AppData\Local\Temp\s77g.s
+7FD cinit CODE >633:C:\Users\jorge\AppData\Local\Temp\s77g.s
+795 text4 CODE >5:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\awdiv.c
+795 text4 CODE >13:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\awdiv.c
+796 text4 CODE >14:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\awdiv.c
+79A text4 CODE >15:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\awdiv.c
+79F text4 CODE >16:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\awdiv.c
+7A1 text4 CODE >18:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\awdiv.c
+7A5 text4 CODE >19:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\awdiv.c
+7AA text4 CODE >20:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\awdiv.c
+7AE text4 CODE >22:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\awdiv.c
+7B0 text4 CODE >23:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\awdiv.c
+7B6 text4 CODE >24:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\awdiv.c
+7B8 text4 CODE >25:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\awdiv.c
+7B9 text4 CODE >26:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\awdiv.c
+7C0 text4 CODE >27:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\awdiv.c
+7C4 text4 CODE >25:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\awdiv.c
+7C8 text4 CODE >30:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\awdiv.c
+7CF text4 CODE >31:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\awdiv.c
+7D9 text4 CODE >32:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\awdiv.c
+7DF text4 CODE >33:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\awdiv.c
+7E0 text4 CODE >35:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\awdiv.c
+7E7 text4 CODE >36:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\awdiv.c
+7ED text4 CODE >38:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\awdiv.c
+7F2 text4 CODE >39:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\awdiv.c
+7F7 text4 CODE >40:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\awdiv.c
+7FB text4 CODE >41:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\awdiv.c
+764 text3 CODE >21:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Master.X\PWM.c
+765 text3 CODE >22:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Master.X\PWM.c
+769 text3 CODE >23:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Master.X\PWM.c
+76C text3 CODE >24:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Master.X\PWM.c
+76D text3 CODE >25:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Master.X\PWM.c
+770 text3 CODE >26:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Master.X\PWM.c
+770 text3 CODE >27:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Master.X\PWM.c
+774 text3 CODE >28:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Master.X\PWM.c
+775 text3 CODE >29:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Master.X\PWM.c
+776 text3 CODE >30:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Master.X\PWM.c
+777 text3 CODE >32:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Master.X\PWM.c
+77C text3 CODE >33:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Master.X\PWM.c
+790 text3 CODE >34:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Master.X\PWM.c
+794 text3 CODE >35:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Master.X\PWM.c
+745 text2 CODE >8:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Master.X\PWM.c
+745 text2 CODE >10:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Master.X\PWM.c
+748 text2 CODE >11:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Master.X\PWM.c
+74A text2 CODE >12:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Master.X\PWM.c
+750 text2 CODE >13:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Master.X\PWM.c
+756 text2 CODE >14:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Master.X\PWM.c
+759 text2 CODE >15:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Master.X\PWM.c
+75B text2 CODE >16:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Master.X\PWM.c
+75C text2 CODE >17:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Master.X\PWM.c
+760 text2 CODE >18:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Master.X\PWM.c
+763 text2 CODE >19:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Master.X\PWM.c
+70E text1 CODE >63:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Master.X\mainMaster.c
+70E text1 CODE >65:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Master.X\mainMaster.c
+711 text1 CODE >66:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Master.X\mainMaster.c
+712 text1 CODE >67:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Master.X\mainMaster.c
+715 text1 CODE >68:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Master.X\mainMaster.c
+716 text1 CODE >69:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Master.X\mainMaster.c
+719 text1 CODE >70:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Master.X\mainMaster.c
+71A text1 CODE >72:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Master.X\mainMaster.c
+720 text1 CODE >73:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Master.X\mainMaster.c
+725 text1 CODE >74:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Master.X\mainMaster.c
+728 text1 CODE >75:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Master.X\mainMaster.c
+729 maintext CODE >49:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Master.X\mainMaster.c
+729 maintext CODE >50:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Master.X\mainMaster.c
+72E maintext CODE >52:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Master.X\mainMaster.c
+734 maintext CODE >53:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Master.X\mainMaster.c
+73A maintext CODE >54:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Master.X\mainMaster.c
+73B maintext CODE >55:C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Master.X\mainMaster.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -172,42 +161,44 @@ __Hspace_3 0 0 ABS 0 - -
 __CFG_IESO$OFF 0 0 ABS 0 - dist/default/production\Master.X.production.o
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __Hstrings 0 0 ABS 0 strings -
-___sp 0 0 STACK 2 stack C:\Users\JIRS0129\AppData\Local\Temp\s9fo.o
-_main E34 0 CODE 0 maintext dist/default/production\Master.X.production.o
+___sp 0 0 STACK 2 stack C:\Users\jorge\AppData\Local\Temp\s77g.o
+_main E52 0 CODE 0 maintext dist/default/production\Master.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\Master.X.production.o
-start 0 0 CODE 0 init C:\Users\JIRS0129\AppData\Local\Temp\s9fo.o
+start 0 0 CODE 0 init C:\Users\jorge\AppData\Local\Temp\s77g.o
 __size_of___awdiv 0 0 ABS 0 - dist/default/production\Master.X.production.o
 __CFG_BOREN$OFF 0 0 ABS 0 - dist/default/production\Master.X.production.o
 __size_of_main 0 0 ABS 0 - dist/default/production\Master.X.production.o
 __Hpowerup 0 0 CODE 0 powerup -
 setWidth@time 7C 0 COMMON 1 cstackCOMMON dist/default/production\Master.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\JIRS0129\AppData\Local\Temp\s9fo.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\JIRS0129\AppData\Local\Temp\s9fo.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\JIRS0129\AppData\Local\Temp\s9fo.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\JIRS0129\AppData\Local\Temp\s9fo.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\JIRS0129\AppData\Local\Temp\s9fo.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\JIRS0129\AppData\Local\Temp\s9fo.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\jorge\AppData\Local\Temp\s77g.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\jorge\AppData\Local\Temp\s77g.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\jorge\AppData\Local\Temp\s77g.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\jorge\AppData\Local\Temp\s77g.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\jorge\AppData\Local\Temp\s77g.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\jorge\AppData\Local\Temp\s77g.o
 _OSCCONbits 8F 0 ABS 0 - dist/default/production\Master.X.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\Master.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
 ___awdiv@sign 76 0 COMMON 1 cstackCOMMON dist/default/production\Master.X.production.o
 __Hclrtext 0 0 ABS 0 clrtext -
-__end_of_configPWM EB2 0 CODE 0 text2 dist/default/production\Master.X.production.o
+__end_of_configPWM EC8 0 CODE 0 text2 dist/default/production\Master.X.production.o
 __size_of_configPWM 0 0 ABS 0 - dist/default/production\Master.X.production.o
 _ANSELH 189 0 ABS 0 - dist/default/production\Master.X.production.o
 ___awdiv@dividend 72 0 COMMON 1 cstackCOMMON dist/default/production\Master.X.production.o
 _CCPR2L 1B 0 ABS 0 - dist/default/production\Master.X.production.o
-_configPWM E72 0 CODE 0 text2 dist/default/production\Master.X.production.o
+_configPWM E8A 0 CODE 0 text2 dist/default/production\Master.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
 ___awdiv@divisor 70 0 COMMON 1 cstackCOMMON dist/default/production\Master.X.production.o
 __end_of___awdiv FF8 0 CODE 0 text4 dist/default/production\Master.X.production.o
+___stackhi 0 0 ABS 0 - C:\Users\jorge\AppData\Local\Temp\s77g.o
+___stacklo 0 0 ABS 0 - C:\Users\jorge\AppData\Local\Temp\s77g.o
 __size_of_setup 0 0 ABS 0 - dist/default/production\Master.X.production.o
 __CFG_FCMEN$OFF 0 0 ABS 0 - dist/default/production\Master.X.production.o
 __CFG_MCLRE$OFF 0 0 ABS 0 - dist/default/production\Master.X.production.o
 start_initialization FF8 0 CODE 0 cinit dist/default/production\Master.X.production.o
 _TRISAbits 85 0 ABS 0 - dist/default/production\Master.X.production.o
 _TRISCbits 87 0 ABS 0 - dist/default/production\Master.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\JIRS0129\AppData\Local\Temp\s9fo.o
+___int_sp 0 0 STACK 2 stack C:\Users\jorge\AppData\Local\Temp\s77g.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -251,16 +242,14 @@ __S3 0 0 ABS 0 - -
 __CFG_BOR4V$BOR40V 0 0 ABS 0 - dist/default/production\Master.X.production.o
 __CFG_FOSC$INTRC_NOCLKOUT 0 0 ABS 0 - dist/default/production\Master.X.production.o
 __Lintentry 0 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\JIRS0129\AppData\Local\Temp\s9fo.o
-___awdiv F16 0 CODE 0 text4 dist/default/production\Master.X.production.o
-__pmaintext E34 0 CODE 0 maintext dist/default/production\Master.X.production.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\jorge\AppData\Local\Temp\s77g.o
+___awdiv F2A 0 CODE 0 text4 dist/default/production\Master.X.production.o
+__pmaintext E52 0 CODE 0 maintext dist/default/production\Master.X.production.o
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 400E 0 CONFIG 0 config -
 __size_of_setWidth 0 0 ABS 0 - dist/default/production\Master.X.production.o
 __CFG_CP$OFF 0 0 ABS 0 - dist/default/production\Master.X.production.o
 __CFG_WDTE$OFF 0 0 ABS 0 - dist/default/production\Master.X.production.o
-stackhi 0 0 ABS 0 - C:\Users\JIRS0129\AppData\Local\Temp\s9fo.o
-stacklo 0 0 ABS 0 - C:\Users\JIRS0129\AppData\Local\Temp\s9fo.o
 __CFG_LVP$OFF 0 0 ABS 0 - dist/default/production\Master.X.production.o
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
@@ -275,12 +264,12 @@ __Lstrings 0 0 ABS 0 strings -
 ___awdiv@quotient 77 0 COMMON 1 cstackCOMMON dist/default/production\Master.X.production.o
 ?___awdiv 70 0 COMMON 1 cstackCOMMON dist/default/production\Master.X.production.o
 __Hreset_vec 0 0 CODE 0 reset_vec -
-_setWidth EB2 0 CODE 0 text3 dist/default/production\Master.X.production.o
-__ptext1 DFE 0 CODE 0 text1 dist/default/production\Master.X.production.o
-__ptext2 E72 0 CODE 0 text2 dist/default/production\Master.X.production.o
-__ptext3 EB2 0 CODE 0 text3 dist/default/production\Master.X.production.o
-__ptext4 F16 0 CODE 0 text4 dist/default/production\Master.X.production.o
-__end_of_setWidth F16 0 CODE 0 text3 dist/default/production\Master.X.production.o
+_setWidth EC8 0 CODE 0 text3 dist/default/production\Master.X.production.o
+__ptext1 E1C 0 CODE 0 text1 dist/default/production\Master.X.production.o
+__ptext2 E8A 0 CODE 0 text2 dist/default/production\Master.X.production.o
+__ptext3 EC8 0 CODE 0 text3 dist/default/production\Master.X.production.o
+__ptext4 F2A 0 CODE 0 text4 dist/default/production\Master.X.production.o
+__end_of_setWidth F2A 0 CODE 0 text3 dist/default/production\Master.X.production.o
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 __Lreset_vec 0 0 CODE 0 reset_vec -
@@ -289,18 +278,18 @@ __Lfunctab 0 0 ENTRY 0 functab -
 __Lclrtext 0 0 ABS 0 clrtext -
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\Master.X.production.o
 __Hend_init 6 0 CODE 0 end_init -
-__end_of_main E72 0 CODE 0 maintext dist/default/production\Master.X.production.o
+__end_of_main E8A 0 CODE 0 maintext dist/default/production\Master.X.production.o
 _CCP2CONbits 1D 0 ABS 0 - dist/default/production\Master.X.production.o
 _ANSEL 188 0 ABS 0 - dist/default/production\Master.X.production.o
 _PORTB 6 0 ABS 0 - dist/default/production\Master.X.production.o
 _PORTD 8 0 ABS 0 - dist/default/production\Master.X.production.o
 _TRISB 86 0 ABS 0 - dist/default/production\Master.X.production.o
 _TRISD 88 0 ABS 0 - dist/default/production\Master.X.production.o
-__end_of_setup E34 0 CODE 0 text1 dist/default/production\Master.X.production.o
+__end_of_setup E52 0 CODE 0 text1 dist/default/production\Master.X.production.o
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
 __CFG_CPD$OFF 0 0 ABS 0 - dist/default/production\Master.X.production.o
-_setup DFE 0 CODE 0 text1 dist/default/production\Master.X.production.o
+_setup E1C 0 CODE 0 text1 dist/default/production\Master.X.production.o
 __initialization FF8 0 CODE 0 cinit dist/default/production\Master.X.production.o
 __CFG_PWRTE$OFF 0 0 ABS 0 - dist/default/production\Master.X.production.o
 _T2CONbits 12 0 ABS 0 - dist/default/production\Master.X.production.o
@@ -331,11 +320,19 @@ __CFG_WRT$OFF 0 0 ABS 0 - dist/default/production\Master.X.production.o
 # All other numeric quantities are in decimal.
 %SEGMENTS
 cinit 0 7FC FF8 4 2
-text1 0 6FF DFE 1B 2
-text2 0 739 E72 20 2
-text3 0 759 EB2 32 2
-text4 0 78B F16 71 2
-maintext 0 71A E34 1F 2
+text1 0 70E E1C 1B 2
+text2 0 745 E8A 1F 2
+text3 0 764 EC8 31 2
+text4 0 795 F2A 67 2
+maintext 0 729 E52 1C 2
 cstackCOMMON 1 70 70 D 1
 reset_vec 0 0 0 3 2
 config 0 2007 400E 2 2
+# OTES Section
+# This section contains data of all the note-psects.  The beginning of the section
+# is indicated by OTES. The first line indicates the name and decimal
+# byte-length of the first note-psect, e.g.
+#   $codecov_info_hdr 16
+# Each line that follows contains the byte-data of the psect in hexadecimal as a
+# space-separated list. These lines are limited to 16 bytes of data.
+%NOTES
