@@ -40,9 +40,7 @@ void setup (void);
 void main(void) {
     setup();
     while(1){
-        for (int i = 0; i < 512; i++){
-            wave_drive(clockwise);
-        }
+        wave_drive(anti_clockwise, 510);
         __delay_ms(2000);
     }
     return;

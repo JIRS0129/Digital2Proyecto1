@@ -2633,53 +2633,55 @@ extern __bank0 __bit __timeout;
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 1 3
 # 11 "./Stepper.h" 2
 # 34 "./Stepper.h"
-void wave_drive (char direction);
+void wave_drive (char direction, int steps);
 # 4 "Stepper.c" 2
 
 
-void wave_drive (char direction){
-    if (direction == 0){
-        RB0 = 1;
-        RB1 = 0;
-        RB2 = 0;
-        RB3 = 0;
-        _delay((unsigned long)((2)*(500000/4000.0)));
-        RB0 = 0;
-        RB1 = 1;
-        RB2 = 0;
-        RB3 = 0;
-        _delay((unsigned long)((2)*(500000/4000.0)));
-        RB0 = 0;
-        RB1 = 0;
-        RB2 = 1;
-        RB3 = 0;
-        _delay((unsigned long)((2)*(500000/4000.0)));
-        RB0 = 0;
-        RB1 = 0;
-        RB2 = 0;
-        RB3 = 1;
-        _delay((unsigned long)((2)*(500000/4000.0)));
-    }
-    if (direction == 1){
-        RB0 = 0;
-        RB1 = 0;
-        RB2 = 0;
-        RB3 = 1;
-        _delay((unsigned long)((2)*(500000/4000.0)));
-        RB0 = 0;
-        RB1 = 0;
-        RB2 = 1;
-        RB3 = 0;
-        _delay((unsigned long)((2)*(500000/4000.0)));
-        RB0 = 0;
-        RB1 = 1;
-        RB2 = 0;
-        RB3 = 0;
-        _delay((unsigned long)((2)*(500000/4000.0)));
-        RB0 = 1;
-        RB1 = 0;
-        RB2 = 0;
-        RB3 = 0;
-        _delay((unsigned long)((2)*(500000/4000.0)));
+void wave_drive (char direction, int steps){
+    for (int i = 0; i <= steps; i++){
+        if (direction == 0){
+            RB1 = 0;
+            RB2 = 0;
+            RB3 = 0;
+            RB0 = 1;
+            _delay((unsigned long)((2)*(500000/4000.0)));
+            RB0 = 0;
+            RB2 = 0;
+            RB3 = 0;
+            RB1 = 1;
+            _delay((unsigned long)((2)*(500000/4000.0)));
+            RB0 = 0;
+            RB1 = 0;
+            RB3 = 0;
+            RB2 = 1;
+            _delay((unsigned long)((2)*(500000/4000.0)));
+            RB0 = 0;
+            RB1 = 0;
+            RB2 = 0;
+            RB3 = 1;
+            _delay((unsigned long)((2)*(500000/4000.0)));
+        }
+        if (direction == 1){
+            RB0 = 0;
+            RB1 = 0;
+            RB2 = 0;
+            RB3 = 1;
+            _delay((unsigned long)((2)*(500000/4000.0)));
+            RB0 = 0;
+            RB1 = 0;
+            RB3 = 0;
+            RB2 = 1;
+            _delay((unsigned long)((2)*(500000/4000.0)));
+            RB0 = 0;
+            RB2 = 0;
+            RB3 = 0;
+            RB1 = 1;
+            _delay((unsigned long)((2)*(500000/4000.0)));
+            RB1 = 0;
+            RB2 = 0;
+            RB3 = 0;
+            RB0 = 1;
+            _delay((unsigned long)((2)*(500000/4000.0)));
+        }
     }
 }

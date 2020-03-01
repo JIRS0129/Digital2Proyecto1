@@ -2653,7 +2653,7 @@ typedef int16_t intptr_t;
 typedef uint16_t uintptr_t;
 # 11 "./Stepper.h" 2
 # 34 "./Stepper.h"
-void wave_drive (char direction);
+void wave_drive (char direction, int steps);
 # 36 "mainStepper.c" 2
 
 
@@ -2662,9 +2662,7 @@ void setup (void);
 void main(void) {
     setup();
     while(1){
-        for (int i = 0; i < 512; i++){
-            wave_drive(1);
-        }
+        wave_drive(0, 510);
         _delay((unsigned long)((2000)*(500000/4000.0)));
     }
     return;

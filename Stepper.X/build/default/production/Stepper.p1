@@ -1,8 +1,5 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"4103 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 4103: extern volatile __bit RB0 __attribute__((address(0x30)));
-[v _RB0 `Vb ~T0 @X0 0 e@48 ]
-"4106
+"4106 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 4106: extern volatile __bit RB1 __attribute__((address(0x31)));
 [v _RB1 `Vb ~T0 @X0 0 e@49 ]
 "4109
@@ -11,6 +8,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4112
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 4112: extern volatile __bit RB3 __attribute__((address(0x33)));
 [v _RB3 `Vb ~T0 @X0 0 e@51 ]
+"4103
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 4103: extern volatile __bit RB0 __attribute__((address(0x30)));
+[v _RB0 `Vb ~T0 @X0 0 e@48 ]
 [v F1284 `(v ~T0 @X0 1 tf1`ul ]
 "92 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic.h
 [v __delay `JF1284 ~T0 @X0 0 e ]
@@ -250,149 +250,166 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
 "6 Stepper.c
-[; ;Stepper.c: 6: void wave_drive (char direction){
-[v _wave_drive `(v ~T0 @X0 1 ef1`uc ]
+[; ;Stepper.c: 6: void wave_drive (char direction, int steps){
+[v _wave_drive `(v ~T0 @X0 1 ef2`uc`i ]
 {
 [e :U _wave_drive ]
 [v _direction `uc ~T0 @X0 1 r1 ]
+[v _steps `i ~T0 @X0 1 r2 ]
 [f ]
 "7
-[; ;Stepper.c: 7:     if (direction == 0){
-[e $ ! == -> _direction `i -> 0 `i 139  ]
+[; ;Stepper.c: 7:     for (int i = 0; i <= steps; i++){
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $U 142  ]
+[e :U 139 ]
 {
 "8
-[; ;Stepper.c: 8:         RB0 = 1;
-[e = _RB0 -> -> 1 `i `b ]
+[; ;Stepper.c: 8:         if (direction == 0){
+[e $ ! == -> _direction `i -> 0 `i 143  ]
+{
 "9
-[; ;Stepper.c: 9:         RB1 = 0;
+[; ;Stepper.c: 9:             RB1 = 0;
 [e = _RB1 -> -> 0 `i `b ]
 "10
-[; ;Stepper.c: 10:         RB2 = 0;
+[; ;Stepper.c: 10:             RB2 = 0;
 [e = _RB2 -> -> 0 `i `b ]
 "11
-[; ;Stepper.c: 11:         RB3 = 0;
+[; ;Stepper.c: 11:             RB3 = 0;
 [e = _RB3 -> -> 0 `i `b ]
 "12
-[; ;Stepper.c: 12:         _delay((unsigned long)((2)*(500000/4000.0)));
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 500000 `l `d .4000.0 `ul ]
+[; ;Stepper.c: 12:             RB0 = 1;
+[e = _RB0 -> -> 1 `i `b ]
 "13
-[; ;Stepper.c: 13:         RB0 = 0;
-[e = _RB0 -> -> 0 `i `b ]
+[; ;Stepper.c: 13:             _delay((unsigned long)((2)*(500000/4000.0)));
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 500000 `l `d .4000.0 `ul ]
 "14
-[; ;Stepper.c: 14:         RB1 = 1;
-[e = _RB1 -> -> 1 `i `b ]
+[; ;Stepper.c: 14:             RB0 = 0;
+[e = _RB0 -> -> 0 `i `b ]
 "15
-[; ;Stepper.c: 15:         RB2 = 0;
+[; ;Stepper.c: 15:             RB2 = 0;
 [e = _RB2 -> -> 0 `i `b ]
 "16
-[; ;Stepper.c: 16:         RB3 = 0;
+[; ;Stepper.c: 16:             RB3 = 0;
 [e = _RB3 -> -> 0 `i `b ]
 "17
-[; ;Stepper.c: 17:         _delay((unsigned long)((2)*(500000/4000.0)));
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 500000 `l `d .4000.0 `ul ]
+[; ;Stepper.c: 17:             RB1 = 1;
+[e = _RB1 -> -> 1 `i `b ]
 "18
-[; ;Stepper.c: 18:         RB0 = 0;
-[e = _RB0 -> -> 0 `i `b ]
+[; ;Stepper.c: 18:             _delay((unsigned long)((2)*(500000/4000.0)));
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 500000 `l `d .4000.0 `ul ]
 "19
-[; ;Stepper.c: 19:         RB1 = 0;
-[e = _RB1 -> -> 0 `i `b ]
+[; ;Stepper.c: 19:             RB0 = 0;
+[e = _RB0 -> -> 0 `i `b ]
 "20
-[; ;Stepper.c: 20:         RB2 = 1;
-[e = _RB2 -> -> 1 `i `b ]
+[; ;Stepper.c: 20:             RB1 = 0;
+[e = _RB1 -> -> 0 `i `b ]
 "21
-[; ;Stepper.c: 21:         RB3 = 0;
+[; ;Stepper.c: 21:             RB3 = 0;
 [e = _RB3 -> -> 0 `i `b ]
 "22
-[; ;Stepper.c: 22:         _delay((unsigned long)((2)*(500000/4000.0)));
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 500000 `l `d .4000.0 `ul ]
-"23
-[; ;Stepper.c: 23:         RB0 = 0;
-[e = _RB0 -> -> 0 `i `b ]
-"24
-[; ;Stepper.c: 24:         RB1 = 0;
-[e = _RB1 -> -> 0 `i `b ]
-"25
-[; ;Stepper.c: 25:         RB2 = 0;
-[e = _RB2 -> -> 0 `i `b ]
-"26
-[; ;Stepper.c: 26:         RB3 = 1;
-[e = _RB3 -> -> 1 `i `b ]
-"27
-[; ;Stepper.c: 27:         _delay((unsigned long)((2)*(500000/4000.0)));
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 500000 `l `d .4000.0 `ul ]
-"28
-[; ;Stepper.c: 28:     }
-}
-[e :U 139 ]
-"29
-[; ;Stepper.c: 29:     if (direction == 1){
-[e $ ! == -> _direction `i -> 1 `i 140  ]
-{
-"30
-[; ;Stepper.c: 30:         RB0 = 0;
-[e = _RB0 -> -> 0 `i `b ]
-"31
-[; ;Stepper.c: 31:         RB1 = 0;
-[e = _RB1 -> -> 0 `i `b ]
-"32
-[; ;Stepper.c: 32:         RB2 = 0;
-[e = _RB2 -> -> 0 `i `b ]
-"33
-[; ;Stepper.c: 33:         RB3 = 1;
-[e = _RB3 -> -> 1 `i `b ]
-"34
-[; ;Stepper.c: 34:         _delay((unsigned long)((2)*(500000/4000.0)));
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 500000 `l `d .4000.0 `ul ]
-"35
-[; ;Stepper.c: 35:         RB0 = 0;
-[e = _RB0 -> -> 0 `i `b ]
-"36
-[; ;Stepper.c: 36:         RB1 = 0;
-[e = _RB1 -> -> 0 `i `b ]
-"37
-[; ;Stepper.c: 37:         RB2 = 1;
+[; ;Stepper.c: 22:             RB2 = 1;
 [e = _RB2 -> -> 1 `i `b ]
+"23
+[; ;Stepper.c: 23:             _delay((unsigned long)((2)*(500000/4000.0)));
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 500000 `l `d .4000.0 `ul ]
+"24
+[; ;Stepper.c: 24:             RB0 = 0;
+[e = _RB0 -> -> 0 `i `b ]
+"25
+[; ;Stepper.c: 25:             RB1 = 0;
+[e = _RB1 -> -> 0 `i `b ]
+"26
+[; ;Stepper.c: 26:             RB2 = 0;
+[e = _RB2 -> -> 0 `i `b ]
+"27
+[; ;Stepper.c: 27:             RB3 = 1;
+[e = _RB3 -> -> 1 `i `b ]
+"28
+[; ;Stepper.c: 28:             _delay((unsigned long)((2)*(500000/4000.0)));
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 500000 `l `d .4000.0 `ul ]
+"29
+[; ;Stepper.c: 29:         }
+}
+[e :U 143 ]
+"30
+[; ;Stepper.c: 30:         if (direction == 1){
+[e $ ! == -> _direction `i -> 1 `i 144  ]
+{
+"31
+[; ;Stepper.c: 31:             RB0 = 0;
+[e = _RB0 -> -> 0 `i `b ]
+"32
+[; ;Stepper.c: 32:             RB1 = 0;
+[e = _RB1 -> -> 0 `i `b ]
+"33
+[; ;Stepper.c: 33:             RB2 = 0;
+[e = _RB2 -> -> 0 `i `b ]
+"34
+[; ;Stepper.c: 34:             RB3 = 1;
+[e = _RB3 -> -> 1 `i `b ]
+"35
+[; ;Stepper.c: 35:             _delay((unsigned long)((2)*(500000/4000.0)));
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 500000 `l `d .4000.0 `ul ]
+"36
+[; ;Stepper.c: 36:             RB0 = 0;
+[e = _RB0 -> -> 0 `i `b ]
+"37
+[; ;Stepper.c: 37:             RB1 = 0;
+[e = _RB1 -> -> 0 `i `b ]
 "38
-[; ;Stepper.c: 38:         RB3 = 0;
+[; ;Stepper.c: 38:             RB3 = 0;
 [e = _RB3 -> -> 0 `i `b ]
 "39
-[; ;Stepper.c: 39:         _delay((unsigned long)((2)*(500000/4000.0)));
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 500000 `l `d .4000.0 `ul ]
+[; ;Stepper.c: 39:             RB2 = 1;
+[e = _RB2 -> -> 1 `i `b ]
 "40
-[; ;Stepper.c: 40:         RB0 = 0;
-[e = _RB0 -> -> 0 `i `b ]
+[; ;Stepper.c: 40:             _delay((unsigned long)((2)*(500000/4000.0)));
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 500000 `l `d .4000.0 `ul ]
 "41
-[; ;Stepper.c: 41:         RB1 = 1;
-[e = _RB1 -> -> 1 `i `b ]
+[; ;Stepper.c: 41:             RB0 = 0;
+[e = _RB0 -> -> 0 `i `b ]
 "42
-[; ;Stepper.c: 42:         RB2 = 0;
+[; ;Stepper.c: 42:             RB2 = 0;
 [e = _RB2 -> -> 0 `i `b ]
 "43
-[; ;Stepper.c: 43:         RB3 = 0;
+[; ;Stepper.c: 43:             RB3 = 0;
 [e = _RB3 -> -> 0 `i `b ]
 "44
-[; ;Stepper.c: 44:         _delay((unsigned long)((2)*(500000/4000.0)));
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 500000 `l `d .4000.0 `ul ]
+[; ;Stepper.c: 44:             RB1 = 1;
+[e = _RB1 -> -> 1 `i `b ]
 "45
-[; ;Stepper.c: 45:         RB0 = 1;
-[e = _RB0 -> -> 1 `i `b ]
+[; ;Stepper.c: 45:             _delay((unsigned long)((2)*(500000/4000.0)));
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 500000 `l `d .4000.0 `ul ]
 "46
-[; ;Stepper.c: 46:         RB1 = 0;
+[; ;Stepper.c: 46:             RB1 = 0;
 [e = _RB1 -> -> 0 `i `b ]
 "47
-[; ;Stepper.c: 47:         RB2 = 0;
+[; ;Stepper.c: 47:             RB2 = 0;
 [e = _RB2 -> -> 0 `i `b ]
 "48
-[; ;Stepper.c: 48:         RB3 = 0;
+[; ;Stepper.c: 48:             RB3 = 0;
 [e = _RB3 -> -> 0 `i `b ]
 "49
-[; ;Stepper.c: 49:         _delay((unsigned long)((2)*(500000/4000.0)));
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 500000 `l `d .4000.0 `ul ]
+[; ;Stepper.c: 49:             RB0 = 1;
+[e = _RB0 -> -> 1 `i `b ]
 "50
-[; ;Stepper.c: 50:     }
-}
-[e :U 140 ]
+[; ;Stepper.c: 50:             _delay((unsigned long)((2)*(500000/4000.0)));
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 500000 `l `d .4000.0 `ul ]
 "51
-[; ;Stepper.c: 51: }
+[; ;Stepper.c: 51:         }
+}
+[e :U 144 ]
+"52
+[; ;Stepper.c: 52:     }
+}
+[e ++ _i -> 1 `i ]
+[e :U 142 ]
+[e $ <= _i _steps 139  ]
+[e :U 140 ]
+}
+"53
+[; ;Stepper.c: 53: }
 [e :UE 138 ]
 }
