@@ -2643,9 +2643,6 @@ void wave_drive (char direction, int steps){
         if (direction == 1){
             switch (count){
                 case 0:
-                    count += 1;
-                    break;
-                case 1:
                     RB1 = 0;
                     RB2 = 0;
                     RB3 = 0;
@@ -2653,7 +2650,7 @@ void wave_drive (char direction, int steps){
                     _delay((unsigned long)((2)*(500000/4000.0)));
                     count += 1;
                     break;
-                case 2:
+                case 1:
                     RB0 = 0;
                     RB2 = 0;
                     RB3 = 0;
@@ -2661,7 +2658,7 @@ void wave_drive (char direction, int steps){
                     _delay((unsigned long)((2)*(500000/4000.0)));
                     count += 1;
                     break;
-                case 3:
+                case 2:
                     RB0 = 0;
                     RB1 = 0;
                     RB3 = 0;
@@ -2669,7 +2666,7 @@ void wave_drive (char direction, int steps){
                     _delay((unsigned long)((2)*(500000/4000.0)));
                     count += 1;
                     break;
-                case 4:
+                case 3:
                     RB0 = 0;
                     RB1 = 0;
                     RB2 = 0;
@@ -2682,9 +2679,6 @@ void wave_drive (char direction, int steps){
         if (direction == 0){
             switch (count){
                 case 0:
-                    count += 1;
-                    break;
-                case 1:
                     RB1 = 0;
                     RB2 = 0;
                     RB0 = 0;
@@ -2692,7 +2686,7 @@ void wave_drive (char direction, int steps){
                     _delay((unsigned long)((2)*(500000/4000.0)));
                     count += 1;
                     break;
-                case 2:
+                case 1:
                     RB0 = 0;
                     RB1 = 0;
                     RB3 = 0;
@@ -2700,7 +2694,7 @@ void wave_drive (char direction, int steps){
                     _delay((unsigned long)((2)*(500000/4000.0)));
                     count += 1;
                     break;
-                case 3:
+                case 2:
                     RB0 = 0;
                     RB2 = 0;
                     RB3 = 0;
@@ -2708,7 +2702,7 @@ void wave_drive (char direction, int steps){
                     _delay((unsigned long)((2)*(500000/4000.0)));
                     count += 1;
                     break;
-                case 4:
+                case 3:
                     RB3 = 0;
                     RB1 = 0;
                     RB2 = 0;

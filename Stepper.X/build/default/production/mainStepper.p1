@@ -6,6 +6,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "34 ./Stepper.h
 [; ;./Stepper.h: 34: void wave_drive (char direction, int steps);
 [v _wave_drive `(v ~T0 @X0 0 ef2`uc`i ]
+[v F1256 `(v ~T0 @X0 1 tf1`ul ]
+"92 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic.h
+[v __delay `JF1256 ~T0 @X0 0 e ]
+[p i __delay ]
 "1868 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1868:     struct {
 [s S70 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 ]
@@ -300,11 +304,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 140 ]
 {
 "41
-[; ;mainStepper.c: 41:         wave_drive (1, 1024);
-[e ( _wave_drive (2 , -> -> 1 `i `uc -> 1024 `i ]
+[; ;mainStepper.c: 41:         wave_drive (1, 3);
+[e ( _wave_drive (2 , -> -> 1 `i `uc -> 3 `i ]
 "42
-[; ;mainStepper.c: 42:         wave_drive (0, 512);
-[e ( _wave_drive (2 , -> -> 0 `i `uc -> 512 `i ]
+[; ;mainStepper.c: 42:         _delay((unsigned long)((100)*(500000/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 500000 `l `d .4000.0 `ul ]
 "44
 [; ;mainStepper.c: 44:     }
 }
