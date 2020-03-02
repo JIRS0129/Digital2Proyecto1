@@ -2660,9 +2660,8 @@ void setup (void);
 void main(void) {
     setup();
     while(1){
-        wave_drive (1, 3);
-        _delay((unsigned long)((100)*(500000/4000.0)));
-
+        wave_drive (1, 2048);
+        _delay((unsigned long)((1000)*(500000/4000.0)));
     }
     return;
 }

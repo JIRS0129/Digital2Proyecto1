@@ -13,7 +13,7 @@
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
 "38 C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
 [v _main main `(v  1 e 1 0 ]
-"48
+"47
 [v _setup setup `(v  1 e 1 0 ]
 "6 C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
 [v _wave_drive wave_drive `(v  1 e 1 0 ]
@@ -46,7 +46,7 @@
 "38 C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
 [v _main main `(v  1 e 1 0 ]
 {
-"46
+"45
 } 0
 "6 C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\Stepper.c
 [v _wave_drive wave_drive `(v  1 e 1 0 ]
@@ -62,8 +62,8 @@
 [v wave_drive@direction direction `uc  1 a 1 5 ]
 "82
 } 0
-"48 C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
+"47 C:\Users\jorge\MPLABXProjects\Digital2Proyecto1\Stepper.X\mainStepper.c
 [v _setup setup `(v  1 e 1 0 ]
 {
-"55
+"54
 } 0

@@ -2672,7 +2672,7 @@ void wave_drive (char direction, int steps){
                     RB2 = 0;
                     RB3 = 1;
                     _delay((unsigned long)((2)*(500000/4000.0)));
-                    count = 1;
+                    count = 0;
                     break;
             }
         }

@@ -10,7 +10,7 @@ __S3 0 0 ABS 0
 __Hintentry 0 0 CODE 0
 __Lintentry 0 0 CODE 0
 __CFG_BOR4V$BOR40V 0 0 ABS 0
-_main 737 0 CODE 0
+_main 73A 0 CODE 0
 ___sp 0 0 STACK 2
 btemp 7E 0 ABS 0
 start 0 0 CODE 0
@@ -22,7 +22,7 @@ __Hconfig 2009 0 CONFIG 0
 __Lconfig 2007 0 CONFIG 0
 __Hram 0 0 ABS 0
 __Lram 0 0 ABS 0
-_setup 72C 0 CODE 0
+_setup 72F 0 CODE 0
 __Hfunctab 0 0 ENTRY 0
 __Lfunctab 0 0 ENTRY 0
 __Hcommon 0 0 ABS 0
@@ -47,7 +47,7 @@ __Hcode 0 0 ABS 0
 __Lcode 0 0 ABS 0
 __Hinit 0 0 CODE 0
 __Linit 0 0 CODE 0
-__end_of_main 753 0 CODE 0
+__end_of_main 755 0 CODE 0
 __Htext 0 0 ABS 0
 __Ltext 0 0 ABS 0
 end_of_initialization 7FC 0 CODE 0
@@ -66,8 +66,8 @@ __Lbank3 0 0 ABS 0
 ___latbits 2 0 ABS 0
 __Hpowerup 0 0 CODE 0
 __Lpowerup 0 0 CODE 0
-__ptext1 753 0 CODE 0
-__ptext2 72C 0 CODE 0
+__ptext1 755 0 CODE 0
+__ptext2 72F 0 CODE 0
 __Hclrtext 0 0 ABS 0
 __Lclrtext 0 0 ABS 0
 wave_drive@direction 75 0 COMMON 1
@@ -80,7 +80,7 @@ __Hspace_0 2009 0 ABS 0
 __Lspace_0 0 0 ABS 0
 __Hspace_1 7A 0 ABS 0
 __Lspace_1 0 0 ABS 0
-_wave_drive 753 0 CODE 0
+_wave_drive 755 0 CODE 0
 __size_of_setup 0 0 ABS 0
 __Hspace_2 0 0 ABS 0
 __Lspace_2 0 0 ABS 0
@@ -97,7 +97,7 @@ __CFG_PWRTE$OFF 0 0 ABS 0
 _OSCCONbits 8F 0 ABS 0
 __Hend_init 3 0 CODE 0
 __Lend_init 0 0 CODE 0
-__end_of_setup 737 0 CODE 0
+__end_of_setup 73A 0 CODE 0
 __Hreset_vec 0 0 CODE 0
 __Lreset_vec 0 0 CODE 0
 intlevel0 0 0 ENTRY 0
@@ -117,7 +117,7 @@ __size_of_wave_drive 0 0 ABS 0
 __Hmaintext 0 0 ABS 0
 __Lmaintext 0 0 ABS 0
 __CFG_IESO$OFF 0 0 ABS 0
-__pmaintext 737 0 CODE 0
+__pmaintext 73A 0 CODE 0
 __initialization 7FC 0 CODE 0
 __CFG_CP$OFF 0 0 ABS 0
 __CFG_LVP$OFF 0 0 ABS 0
@@ -126,52 +126,52 @@ reset_vec 0 5 CODE 0 0
 cinit FF8 FFF CODE FF8 0
 config 400E 4011 CONFIG 400E 0
 cstackCOMMON 70 79 COMMON 70 1
-text1 EA6 FF7 CODE EA6 0
-maintext E6E EA5 CODE E6E 0
-text2 E58 E6D CODE E58 0
+text1 EAA FF7 CODE EAA 0
+maintext E74 EA9 CODE E74 0
+text2 E5E E73 CODE E5E 0
 %locals
 dist/default/production\Stepper.X.production.o
-C:\Users\jorge\AppData\Local\Temp\s2hs.s
+C:\Users\jorge\AppData\Local\Temp\sfng.s
 602 7FC 0 CODE 0
 605 7FC 0 CODE 0
 611 7FC 0 CODE 0
 613 7FC 0 CODE 0
 614 7FD 0 CODE 0
 mainStepper.c
-38 737 0 CODE 0
-39 737 0 CODE 0
-41 73C 0 CODE 0
-42 746 0 CODE 0
+38 73A 0 CODE 0
+39 73A 0 CODE 0
+41 73F 0 CODE 0
+42 749 0 CODE 0
 Stepper.c
-6 753 0 CODE 0
-7 754 0 CODE 0
-8 756 0 CODE 0
-9 759 0 CODE 0
-11 75F 0 CODE 0
-12 75F 0 CODE 0
-13 762 0 CODE 0
-14 763 0 CODE 0
-15 764 0 CODE 0
-16 765 0 CODE 0
-17 769 0 CODE 0
-18 76F 0 CODE 0
-19 770 0 CODE 0
-20 770 0 CODE 0
-21 773 0 CODE 0
-22 774 0 CODE 0
-23 775 0 CODE 0
-27 777 0 CODE 0
-28 777 0 CODE 0
-29 77A 0 CODE 0
-30 77B 0 CODE 0
-31 77C 0 CODE 0
-35 77E 0 CODE 0
-36 77E 0 CODE 0
-37 781 0 CODE 0
-38 782 0 CODE 0
-39 783 0 CODE 0
-40 784 0 CODE 0
-41 788 0 CODE 0
+6 755 0 CODE 0
+7 756 0 CODE 0
+8 758 0 CODE 0
+9 75B 0 CODE 0
+11 761 0 CODE 0
+12 761 0 CODE 0
+13 764 0 CODE 0
+14 765 0 CODE 0
+15 766 0 CODE 0
+16 767 0 CODE 0
+17 76B 0 CODE 0
+18 771 0 CODE 0
+19 772 0 CODE 0
+20 772 0 CODE 0
+21 775 0 CODE 0
+22 776 0 CODE 0
+23 777 0 CODE 0
+27 779 0 CODE 0
+28 779 0 CODE 0
+29 77C 0 CODE 0
+30 77D 0 CODE 0
+31 77E 0 CODE 0
+35 780 0 CODE 0
+36 780 0 CODE 0
+37 783 0 CODE 0
+38 784 0 CODE 0
+39 785 0 CODE 0
+40 786 0 CODE 0
+41 78A 0 CODE 0
 42 78C 0 CODE 0
 43 78D 0 CODE 0
 45 7A0 0 CODE 0
@@ -205,8 +205,8 @@ Stepper.c
 81 7E7 0 CODE 0
 82 7FB 0 CODE 0
 mainStepper.c
-48 72C 0 CODE 0
-50 72C 0 CODE 0
-53 732 0 CODE 0
-54 733 0 CODE 0
-55 736 0 CODE 0
+47 72F 0 CODE 0
+49 72F 0 CODE 0
+52 735 0 CODE 0
+53 736 0 CODE 0
+54 739 0 CODE 0

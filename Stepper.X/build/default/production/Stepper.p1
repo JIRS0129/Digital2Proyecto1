@@ -368,8 +368,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Stepper.c: 40:                     _delay((unsigned long)((2)*(500000/4000.0)));
 [e ( __delay (1 -> * -> -> 2 `i `d / -> -> 500000 `l `d .4000.0 `ul ]
 "41
-[; ;Stepper.c: 41:                     count = 1;
-[e = _count -> 1 `i ]
+[; ;Stepper.c: 41:                     count = 0;
+[e = _count -> 0 `i ]
 "42
 [; ;Stepper.c: 42:                     break;
 [e $U 144  ]

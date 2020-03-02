@@ -38,9 +38,8 @@ void setup (void);
 void main(void) {
     setup();
     while(1){
-        wave_drive (clockwise, 3);
-        __delay_ms(100);
-        
+        wave_drive (clockwise, 2048);
+        __delay_ms(1000);
     }
     return;
 }
