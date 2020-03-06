@@ -13,22 +13,22 @@
 #include <xc.h>
 #define clockwise 1
 #define anti_clockwise 0
-#define _XTAL_FREQ 500000
+#define _XTAL_FREQ 4000000
 
 #ifndef in1
-#define in1 RB0
+#define in1 RA0
 #endif
 
 #ifndef in2
-#define in2 RB1
+#define in2 RA1
 #endif
 
 #ifndef in3
-#define in3 RB2
+#define in3 RA2
 #endif
 
 #ifndef in4
-#define in4 RB3
+#define in4 RA3
 #endif
 
 void wave_drive (char direction, int steps);

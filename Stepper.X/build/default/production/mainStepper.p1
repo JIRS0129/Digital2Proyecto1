@@ -1,30 +1,54 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[p mainexit ]
-"36 mainStepper.c
-[; ;mainStepper.c: 36: void setup (void);
-[v _setup `(v ~T0 @X0 0 ef ]
+[t ~ __interrupt . k ]
+[t T1 __interrupt ]
+"465 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 465:     struct {
+[s S16 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S16 . RBIF INTF T0IF RBIE INTE T0IE PEIE GIE ]
+"475
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 475:     struct {
+[s S17 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S17 . . TMR0IF . TMR0IE ]
+"464
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 464: typedef union {
+[u S15 `S16 1 `S17 1 ]
+[n S15 . . . ]
+"482
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 482: extern volatile INTCONbits_t INTCONbits __attribute__((address(0x00B)));
+[v _INTCONbits `VS15 ~T0 @X0 0 e@11 ]
+"234
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 234:     struct {
+[s S8 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S8 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+"233
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 233: typedef union {
+[u S7 `S8 1 ]
+[n S7 . . ]
+"245
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 245: extern volatile PORTBbits_t PORTBbits __attribute__((address(0x006)));
+[v _PORTBbits `VS7 ~T0 @X0 0 e@6 ]
 "34 ./Stepper.h
 [; ;./Stepper.h: 34: void wave_drive (char direction, int steps);
 [v _wave_drive `(v ~T0 @X0 0 ef2`uc`i ]
-[v F1256 `(v ~T0 @X0 1 tf1`ul ]
-"92 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic.h
-[v __delay `JF1256 ~T0 @X0 0 e ]
-[p i __delay ]
-"1868 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1868:     struct {
-[s S70 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 ]
-[n S70 . SCS LTS HTS OSTS IRCF ]
-"1875
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1875:     struct {
-[s S71 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S71 . . IRCF0 IRCF1 IRCF2 ]
-"1867
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1867: typedef union {
-[u S69 `S70 1 `S71 1 ]
-[n S69 . . . ]
-"1882
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1882: extern volatile OSCCONbits_t OSCCONbits __attribute__((address(0x08F)));
-[v _OSCCONbits `VS69 ~T0 @X0 0 e@143 ]
+[p mainexit ]
+"39 mainStepper.c
+[; ;mainStepper.c: 39: void setup (void);
+[v _setup `(v ~T0 @X0 0 ef ]
+"15 ./PORTB_INT.h
+[; ;./PORTB_INT.h: 15: void Interrupcion_PORTB (int pin);
+[v _Interrupcion_PORTB `(v ~T0 @X0 0 ef1`i ]
+"3387 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3387: extern volatile unsigned char ANSEL __attribute__((address(0x188)));
+[v _ANSEL `Vuc ~T0 @X0 0 e@392 ]
+"3449
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3449: extern volatile unsigned char ANSELH __attribute__((address(0x189)));
+[v _ANSELH `Vuc ~T0 @X0 0 e@393 ]
+"1416
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1416: extern volatile unsigned char TRISA __attribute__((address(0x085)));
+[v _TRISA `Vuc ~T0 @X0 0 e@133 ]
+"166
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 166: extern volatile unsigned char PORTA __attribute__((address(0x005)));
+[v _PORTA `Vuc ~T0 @X0 0 e@5 ]
 "1478
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1478: extern volatile unsigned char TRISB __attribute__((address(0x086)));
 [v _TRISB `Vuc ~T0 @X0 0 e@134 ]
@@ -289,55 +313,129 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3546
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
+"37 mainStepper.c
+[; ;mainStepper.c: 37: uint8_t action = 0;
+[v _action `uc ~T0 @X0 1 e ]
+[i _action
+-> -> 0 `i `uc
+]
+[v $root$_ISR `(v ~T0 @X0 0 e ]
+"41
+[; ;mainStepper.c: 41: void __attribute__((picinterrupt(("")))) ISR (void){
+[v _ISR `(v ~T1 @X0 1 ef ]
+{
+[e :U _ISR ]
+[f ]
+"42
+[; ;mainStepper.c: 42:     INTCONbits.GIE = 0;
+[e = . . _INTCONbits 0 7 -> -> 0 `i `uc ]
+"43
+[; ;mainStepper.c: 43:     INTCONbits.RBIE = 0;
+[e = . . _INTCONbits 0 3 -> -> 0 `i `uc ]
+"45
+[; ;mainStepper.c: 45:     if(INTCONbits.RBIF == 1 && PORTBbits.RB0 == 0){
+[e $ ! && == -> . . _INTCONbits 0 0 `i -> 1 `i == -> . . _PORTBbits 0 0 `i -> 0 `i 139  ]
+{
+"46
+[; ;mainStepper.c: 46:         if(action == 0){
+[e $ ! == -> _action `i -> 0 `i 140  ]
+{
+"47
+[; ;mainStepper.c: 47:             wave_drive (1, 2048);
+[e ( _wave_drive (2 , -> -> 1 `i `uc -> 2048 `i ]
+"48
+[; ;mainStepper.c: 48:             action = 1;
+[e = _action -> -> 1 `i `uc ]
+"49
+[; ;mainStepper.c: 49:         }else if(action == 1){
+}
+[e $U 141  ]
+[e :U 140 ]
+[e $ ! == -> _action `i -> 1 `i 142  ]
+{
+"50
+[; ;mainStepper.c: 50:             wave_drive (0, 2048);
+[e ( _wave_drive (2 , -> -> 0 `i `uc -> 2048 `i ]
+"51
+[; ;mainStepper.c: 51:             action = 0;
+[e = _action -> -> 0 `i `uc ]
+"52
+[; ;mainStepper.c: 52:         }
+}
+[e :U 142 ]
+[e :U 141 ]
+"53
+[; ;mainStepper.c: 53:     }
+}
+[e :U 139 ]
+"55
+[; ;mainStepper.c: 55:     INTCONbits.GIE = 1;
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+"56
+[; ;mainStepper.c: 56:     INTCONbits.RBIE = 1;
+[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
+"57
+[; ;mainStepper.c: 57:     INTCONbits.RBIF = 0;
+[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
+"58
+[; ;mainStepper.c: 58: }
+[e :UE 138 ]
+}
 [v $root$_main `(v ~T0 @X0 0 e ]
-"38 mainStepper.c
-[; ;mainStepper.c: 38: void main(void) {
+"60
+[; ;mainStepper.c: 60: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"39
-[; ;mainStepper.c: 39:     setup();
+"61
+[; ;mainStepper.c: 61:     setup();
 [e ( _setup ..  ]
-"40
-[; ;mainStepper.c: 40:     while(1){
-[e :U 140 ]
+"62
+[; ;mainStepper.c: 62:     Interrupcion_PORTB (0);
+[e ( _Interrupcion_PORTB (1 -> 0 `i ]
+"63
+[; ;mainStepper.c: 63:     while(1){
+[e :U 145 ]
 {
-"41
-[; ;mainStepper.c: 41:         wave_drive (1, 2048);
-[e ( _wave_drive (2 , -> -> 1 `i `uc -> 2048 `i ]
-"42
-[; ;mainStepper.c: 42:         _delay((unsigned long)((1000)*(500000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 500000 `l `d .4000.0 `ul ]
-"43
-[; ;mainStepper.c: 43:     }
+"65
+[; ;mainStepper.c: 65:     }
 }
-[e :U 139 ]
-[e $U 140  ]
-[e :U 141 ]
-"44
-[; ;mainStepper.c: 44:     return;
-[e $UE 138  ]
-"45
-[; ;mainStepper.c: 45: }
-[e :UE 138 ]
+[e :U 144 ]
+[e $U 145  ]
+[e :U 146 ]
+"66
+[; ;mainStepper.c: 66:     return;
+[e $UE 143  ]
+"67
+[; ;mainStepper.c: 67: }
+[e :UE 143 ]
 }
-"47
-[; ;mainStepper.c: 47: void setup(void){
+"69
+[; ;mainStepper.c: 69: void setup(void){
 [v _setup `(v ~T0 @X0 1 ef ]
 {
 [e :U _setup ]
 [f ]
-"49
-[; ;mainStepper.c: 49:     OSCCONbits.IRCF = 3;
-[e = . . _OSCCONbits 0 4 -> -> 3 `i `uc ]
-"52
-[; ;mainStepper.c: 52:     TRISB = 0;
+"74
+[; ;mainStepper.c: 74:     ANSEL = 0;
+[e = _ANSEL -> -> 0 `i `uc ]
+"75
+[; ;mainStepper.c: 75:     ANSELH = 0;
+[e = _ANSELH -> -> 0 `i `uc ]
+"76
+[; ;mainStepper.c: 76:     TRISA = 0;
+[e = _TRISA -> -> 0 `i `uc ]
+"77
+[; ;mainStepper.c: 77:     PORTA = 0;
+[e = _PORTA -> -> 0 `i `uc ]
+"78
+[; ;mainStepper.c: 78:     TRISB = 0;
 [e = _TRISB -> -> 0 `i `uc ]
-"53
-[; ;mainStepper.c: 53:     PORTB = 0;
+"79
+[; ;mainStepper.c: 79:     PORTB = 0;
 [e = _PORTB -> -> 0 `i `uc ]
-"54
-[; ;mainStepper.c: 54: }
-[e :UE 142 ]
+"80
+[; ;mainStepper.c: 80: }
+[e :UE 147 ]
 }

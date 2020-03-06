@@ -74,7 +74,7 @@ void wave_drive (char direction, int steps){
                     in3 = 0;
                     in1 = 1;
                     __delay_ms(2);
-                    count = 1;
+                    count = 0;
                     break;
             }
         }

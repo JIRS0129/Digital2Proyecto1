@@ -30,25 +30,51 @@
 // Use project enums instead of #define for ON and OFF.
 
 #include <xc.h>
-#define _XTAL_FREQ 500000
+#define _XTAL_FREQ 4000000
 #include "Stepper.h"
+#include "PORTB_INT.h"
+
+uint8_t action = 0;
 
 void setup (void);
 
+void __interrupt() ISR (void){
+    INTCONbits.GIE = 0; //deshabilitación de interrupciones
+    INTCONbits.RBIE = 0;
+
+    if(INTCONbits.RBIF == 1 && PORTBbits.RB0 == 0){
+        if(action == 0){
+            wave_drive (clockwise, 2048);
+            action = 1;
+        }else if(action == 1){
+            wave_drive (anti_clockwise, 2048);
+            action = 0;
+        }
+    }
+    
+    INTCONbits.GIE = 1; //Reinicio de banderas y habilitación de interrupciones
+    INTCONbits.RBIE = 1;
+    INTCONbits.RBIF = 0;
+}
+
 void main(void) {
     setup();
+    Interrupcion_PORTB (0);
     while(1){
-        wave_drive (clockwise, 2048);
-        __delay_ms(1000);
+
     }
     return;
 }
 
 void setup(void){
     // Fosc = 500kHz--
-    OSCCONbits.IRCF = 3;    
+    //OSCCONbits.IRCF = 3;    
     
     // Port configs
+    ANSEL = 0; //Pines digitales
+    ANSELH = 0;
+    TRISA = 0;
+    PORTA = 0;
     TRISB = 0;
     PORTB = 0;
 }
