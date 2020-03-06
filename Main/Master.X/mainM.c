@@ -47,11 +47,12 @@
 //*****************************************************************************
 void setup(void);
 
-uint8_t adc, entero1, dec1, counter;
+uint8_t adc, adcl, entero1, dec1, counter;
 uint8_t entero2, dec2;
 float sensorF1, float1;
 float sensorF2, float2;
-uint8_t toggle, s3 = 0;
+uint8_t toggle, s3, count = 0;
+uint16_t writeADC;
 float lux;
 
 //*****************************************************************************
@@ -62,12 +63,14 @@ void main(void) {
     while(1){
         
         
-        
+        count = toggle%3;
         I2C_Master_Start();
         I2C_Master_Write(0x69);
-        if(toggle%2){
+        if(count == 0){
             adc = I2C_Master_Read(0);
-        }else{
+        }else if(count == 1){
+            adcl = I2C_Master_Read(0);
+        }else if(count == 2){
             counter = I2C_Master_Read(0);
         }
         toggle++;
@@ -75,11 +78,13 @@ void main(void) {
         __delay_ms(10); 
         
         
-        setCursorLCD(2, 15);
-        writeIntLCD(adc);
+        setCursorLCD(2, 1);
+        //writeIntLCD(adc);
+        writeADC = adc*256+adcl;
+        //writeIntLCD16((adc*256+adcl)/256);
         writeStrLCD("  ");
         //Potentiometer's processing
-        sensorF1 = (float) (adc-20) * 3.04; //Conversion from 0 to 5V
+        //sensorF1 = (float) (adc-20) * 3.04; //Conversion from 0 to 5V
         entero1 = (int) sensorF1;           //Takes only the integer from convertion
         float1 = (sensorF1 - entero1)*100;  //Subtraction and multiplication to leave the 2 decimals as integers
         dec1 = (int) float1;                //Takes the integer (which is the 2 decimals from convertion)

@@ -2717,6 +2717,7 @@ void writeStrLCD(uint8_t *a);
 void writeCharLCD(uint8_t character);
 void cmdLCD(uint8_t cmd);
 void writeIntLCD(uint8_t numero);
+void writeIntLCD16(uint16_t numero);
 void writeFloat(uint8_t integer, uint8_t decimals, uint8_t initPos);
 # 37 "mainM.c" 2
 
@@ -2757,11 +2758,12 @@ extern double round(double);
 # 48 "mainM.c"
 void setup(void);
 
-uint8_t adc, entero1, dec1, counter;
+uint8_t adc, adcl, entero1, dec1, counter;
 uint8_t entero2, dec2;
 float sensorF1, float1;
 float sensorF2, float2;
-uint8_t toggle, s3 = 0;
+uint8_t toggle, s3, count = 0;
+uint16_t writeADC;
 float lux;
 
 
@@ -2772,12 +2774,14 @@ void main(void) {
     while(1){
 
 
-
+        count = toggle%3;
         I2C_Master_Start();
         I2C_Master_Write(0x69);
-        if(toggle%2){
+        if(count == 0){
             adc = I2C_Master_Read(0);
-        }else{
+        }else if(count == 1){
+            adcl = I2C_Master_Read(0);
+        }else if(count == 2){
             counter = I2C_Master_Read(0);
         }
         toggle++;
@@ -2785,11 +2789,13 @@ void main(void) {
         _delay((unsigned long)((10)*(4000000/4000.0)));
 
 
-        setCursorLCD(2, 15);
-        writeIntLCD(adc);
+        setCursorLCD(2, 1);
+
+        writeADC = adc*256+adcl;
+
         writeStrLCD("  ");
 
-        sensorF1 = (float) (adc-20) * 3.04;
+
         entero1 = (int) sensorF1;
         float1 = (sensorF1 - entero1)*100;
         dec1 = (int) float1;

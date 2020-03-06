@@ -2841,6 +2841,7 @@ void writeStrLCD(uint8_t *a);
 void writeCharLCD(uint8_t character);
 void cmdLCD(uint8_t cmd);
 void writeIntLCD(uint8_t numero);
+void writeIntLCD16(uint16_t numero);
 void writeFloat(uint8_t integer, uint8_t decimals, uint8_t initPos);
 # 6 "LCD.c" 2
 
@@ -2896,6 +2897,12 @@ void cmdLCD(uint8_t cmd){
 
 void writeIntLCD(uint8_t numero){
     char buffer [4];
+    sprintf (buffer, "%d", numero);
+    writeStrLCD(buffer);
+}
+
+void writeIntLCD16(uint16_t numero){
+    char buffer [8];
     sprintf (buffer, "%d", numero);
     writeStrLCD(buffer);
 }

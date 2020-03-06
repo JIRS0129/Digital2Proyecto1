@@ -60,6 +60,12 @@ void writeIntLCD(uint8_t numero){       //Converts integer to string and writes 
     writeStrLCD(buffer);
 }
 
+void writeIntLCD16(uint16_t numero){       //Converts integer to string and writes to LCD
+    char buffer [8];
+    sprintf (buffer, "%d", numero);
+    writeStrLCD(buffer);
+}
+
 void writeFloat(uint8_t integer, uint8_t decimal, uint8_t initPos){ //Takes integer and decimals as parameters and writes them as a float to the LCD starting from position initPos
     //3.52V
     //123456789

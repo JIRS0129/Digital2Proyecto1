@@ -42,7 +42,7 @@
 #define _XTAL_FREQ 500000
 uint8_t z;
 uint8_t dato, received = 0;
-uint8_t hall;
+uint8_t hall, count;
 //*****************************************************************************
 // Definición de funciones para que se puedan colocar después del main de lo 
 // contrario hay que colocarlos todas las funciones antes del main
@@ -76,9 +76,12 @@ void __interrupt() isr(void){
         }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
             z = SSPBUF;
             BF = 0;
-            if(received%2){
-                SSPBUF = adc;
-            }else{
+            count = received%3;
+            if(count == 0){
+                SSPBUF = ADRESH;
+            }else if(count == 1){
+                SSPBUF = ADRESL;
+            }else if(count == 2){
                 SSPBUF = hall;
             }
             received++;
@@ -90,7 +93,6 @@ void __interrupt() isr(void){
         PIR1bits.SSPIF = 0;    
     }
     if(ADCON0bits.GO_DONE == 0){   //If ADC interrupt
-        adc = readADC();                    //Activate flag
         PIR1bits.ADIF = 0;          //Clear ADC flag
     }
 }

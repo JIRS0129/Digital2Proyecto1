@@ -2731,7 +2731,7 @@ void setWidth(uint16_t time);
 
 uint8_t z;
 uint8_t dato, received = 0;
-uint8_t hall;
+uint8_t hall, count;
 
 
 
@@ -2765,9 +2765,12 @@ void __attribute__((picinterrupt(""))) isr(void){
         }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
             z = SSPBUF;
             BF = 0;
-            if(received%2){
-                SSPBUF = adc;
-            }else{
+            count = received%3;
+            if(count == 0){
+                SSPBUF = ADRESH;
+            }else if(count == 1){
+                SSPBUF = ADRESL;
+            }else if(count == 2){
                 SSPBUF = hall;
             }
             received++;
@@ -2779,7 +2782,6 @@ void __attribute__((picinterrupt(""))) isr(void){
         PIR1bits.SSPIF = 0;
     }
     if(ADCON0bits.GO_DONE == 0){
-        adc = readADC();
         PIR1bits.ADIF = 0;
     }
 }

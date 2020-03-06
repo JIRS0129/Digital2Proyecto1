@@ -28,6 +28,7 @@ void writeStrLCD(uint8_t *a);
 void writeCharLCD(uint8_t character);
 void cmdLCD(uint8_t cmd);
 void writeIntLCD(uint8_t numero);
+void writeIntLCD16(uint16_t numero);
 void writeFloat(uint8_t integer, uint8_t decimals, uint8_t initPos);
 
 #endif	/* LCD_H */

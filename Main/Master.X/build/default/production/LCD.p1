@@ -450,7 +450,27 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 155 ]
 }
 "63
-[; ;LCD.c: 63: void writeFloat(uint8_t integer, uint8_t decimal, uint8_t initPos){
+[; ;LCD.c: 63: void writeIntLCD16(uint16_t numero){
+[v _writeIntLCD16 `(v ~T0 @X0 1 ef1`ui ]
+{
+[e :U _writeIntLCD16 ]
+[v _numero `ui ~T0 @X0 1 r1 ]
+[f ]
+"64
+[; ;LCD.c: 64:     char buffer [8];
+[v _buffer `uc ~T0 @X0 -> 8 `i a ]
+"65
+[; ;LCD.c: 65:     sprintf (buffer, "%d", numero);
+[e ( _sprintf (1 , (. , &U _buffer :s 2C _numero ]
+"66
+[; ;LCD.c: 66:     writeStrLCD(buffer);
+[e ( _writeStrLCD (1 -> &U _buffer `*uc ]
+"67
+[; ;LCD.c: 67: }
+[e :UE 156 ]
+}
+"69
+[; ;LCD.c: 69: void writeFloat(uint8_t integer, uint8_t decimal, uint8_t initPos){
 [v _writeFloat `(v ~T0 @X0 1 ef3`uc`uc`uc ]
 {
 [e :U _writeFloat ]
@@ -458,61 +478,62 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _decimal `uc ~T0 @X0 1 r2 ]
 [v _initPos `uc ~T0 @X0 1 r3 ]
 [f ]
-"66
-[; ;LCD.c: 66:     setCursorLCD(2, initPos);
-[e ( _setCursorLCD (2 , -> -> 2 `i `uc _initPos ]
-"67
-[; ;LCD.c: 67:     writeIntLCD(integer);
-[e ( _writeIntLCD (1 _integer ]
-"68
-[; ;LCD.c: 68:     if(integer >= 10){
-[e $ ! >= -> _integer `i -> 10 `i 157  ]
-{
-"69
-[; ;LCD.c: 69:         initPos++;
-[e ++ _initPos -> -> 1 `i `uc ]
-"70
-[; ;LCD.c: 70:     }if(integer >= 100){
-}
-[e :U 157 ]
-[e $ ! >= -> _integer `i -> 100 `i 158  ]
-{
-"71
-[; ;LCD.c: 71:         initPos++;
-[e ++ _initPos -> -> 1 `i `uc ]
 "72
-[; ;LCD.c: 72:     }
+[; ;LCD.c: 72:     setCursorLCD(2, initPos);
+[e ( _setCursorLCD (2 , -> -> 2 `i `uc _initPos ]
+"73
+[; ;LCD.c: 73:     writeIntLCD(integer);
+[e ( _writeIntLCD (1 _integer ]
+"74
+[; ;LCD.c: 74:     if(integer >= 10){
+[e $ ! >= -> _integer `i -> 10 `i 158  ]
+{
+"75
+[; ;LCD.c: 75:         initPos++;
+[e ++ _initPos -> -> 1 `i `uc ]
+"76
+[; ;LCD.c: 76:     }if(integer >= 100){
 }
 [e :U 158 ]
-"73
-[; ;LCD.c: 73:     setCursorLCD(2, initPos + 1);
-[e ( _setCursorLCD (2 , -> -> 2 `i `uc -> + -> _initPos `i -> 1 `i `uc ]
-"74
-[; ;LCD.c: 74:     writeCharLCD('.');
-[e ( _writeCharLCD (1 -> -> 46 `ui `uc ]
-"75
-[; ;LCD.c: 75:     setCursorLCD(2, initPos + 2);
-[e ( _setCursorLCD (2 , -> -> 2 `i `uc -> + -> _initPos `i -> 2 `i `uc ]
-"77
-[; ;LCD.c: 77:     if(decimal < 10){
-[e $ ! < -> _decimal `i -> 10 `i 159  ]
+[e $ ! >= -> _integer `i -> 100 `i 159  ]
 {
+"77
+[; ;LCD.c: 77:         initPos++;
+[e ++ _initPos -> -> 1 `i `uc ]
 "78
-[; ;LCD.c: 78:         writeCharLCD('0');
-[e ( _writeCharLCD (1 -> -> 48 `ui `uc ]
-"79
-[; ;LCD.c: 79:     }
+[; ;LCD.c: 78:     }
 }
 [e :U 159 ]
+"79
+[; ;LCD.c: 79:     setCursorLCD(2, initPos + 1);
+[e ( _setCursorLCD (2 , -> -> 2 `i `uc -> + -> _initPos `i -> 1 `i `uc ]
 "80
-[; ;LCD.c: 80:     writeIntLCD(decimal);
-[e ( _writeIntLCD (1 _decimal ]
-"82
-[; ;LCD.c: 82:     setCursorLCD(2, initPos + 4);
-[e ( _setCursorLCD (2 , -> -> 2 `i `uc -> + -> _initPos `i -> 4 `i `uc ]
+[; ;LCD.c: 80:     writeCharLCD('.');
+[e ( _writeCharLCD (1 -> -> 46 `ui `uc ]
+"81
+[; ;LCD.c: 81:     setCursorLCD(2, initPos + 2);
+[e ( _setCursorLCD (2 , -> -> 2 `i `uc -> + -> _initPos `i -> 2 `i `uc ]
+"83
+[; ;LCD.c: 83:     if(decimal < 10){
+[e $ ! < -> _decimal `i -> 10 `i 160  ]
+{
 "84
-[; ;LCD.c: 84: }
-[e :UE 156 ]
+[; ;LCD.c: 84:         writeCharLCD('0');
+[e ( _writeCharLCD (1 -> -> 48 `ui `uc ]
+"85
+[; ;LCD.c: 85:     }
+}
+[e :U 160 ]
+"86
+[; ;LCD.c: 86:     writeIntLCD(decimal);
+[e ( _writeIntLCD (1 _decimal ]
+"88
+[; ;LCD.c: 88:     setCursorLCD(2, initPos + 4);
+[e ( _setCursorLCD (2 , -> -> 2 `i `uc -> + -> _initPos `i -> 4 `i `uc ]
+"90
+[; ;LCD.c: 90: }
+[e :UE 157 ]
 }
 [p f _sprintf 8388736 ]
 [a 1C 37 100 0 ]
+[a 2C 37 100 0 ]

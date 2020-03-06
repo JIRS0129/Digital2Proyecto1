@@ -22,15 +22,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "25 ./LCD.h
 [; ;./LCD.h: 25: void setCursorLCD(uint8_t y, uint8_t x);
 [v _setCursorLCD `(v ~T0 @X0 0 ef2`uc`uc ]
-"30
-[; ;./LCD.h: 30: void writeIntLCD(uint8_t numero);
-[v _writeIntLCD `(v ~T0 @X0 0 ef1`uc ]
 "27
 [; ;./LCD.h: 27: void writeStrLCD(uint8_t *a);
 [v _writeStrLCD `(v ~T0 @X0 0 ef1`*uc ]
-"31
-[; ;./LCD.h: 31: void writeFloat(uint8_t integer, uint8_t decimals, uint8_t initPos);
+"32
+[; ;./LCD.h: 32: void writeFloat(uint8_t integer, uint8_t decimals, uint8_t initPos);
 [v _writeFloat `(v ~T0 @X0 0 ef3`uc`uc`uc ]
+"30
+[; ;./LCD.h: 30: void writeIntLCD(uint8_t numero);
+[v _writeIntLCD `(v ~T0 @X0 0 ef1`uc ]
 "28
 [; ;./LCD.h: 28: void writeCharLCD(uint8_t character);
 [v _writeCharLCD `(v ~T0 @X0 0 ef1`uc ]
@@ -326,8 +326,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ]
 "50 mainM.c
-[; ;mainM.c: 50: uint8_t adc, entero1, dec1, counter;
+[; ;mainM.c: 50: uint8_t adc, adcl, entero1, dec1, counter;
 [v _adc `uc ~T0 @X0 1 e ]
+[v _adcl `uc ~T0 @X0 1 e ]
 [v _entero1 `uc ~T0 @X0 1 e ]
 [v _dec1 `uc ~T0 @X0 1 e ]
 [v _counter `uc ~T0 @X0 1 e ]
@@ -344,167 +345,184 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _sensorF2 `f ~T0 @X0 1 e ]
 [v _float2 `f ~T0 @X0 1 e ]
 "54
-[; ;mainM.c: 54: uint8_t toggle, s3 = 0;
+[; ;mainM.c: 54: uint8_t toggle, s3, count = 0;
 [v _toggle `uc ~T0 @X0 1 e ]
 [v _s3 `uc ~T0 @X0 1 e ]
-[i _s3
+[v _count `uc ~T0 @X0 1 e ]
+[i _count
 -> -> 0 `i `uc
 ]
 "55
-[; ;mainM.c: 55: float lux;
+[; ;mainM.c: 55: uint16_t writeADC;
+[v _writeADC `ui ~T0 @X0 1 e ]
+"56
+[; ;mainM.c: 56: float lux;
 [v _lux `f ~T0 @X0 1 e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"60
-[; ;mainM.c: 60: void main(void) {
+"61
+[; ;mainM.c: 61: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"61
-[; ;mainM.c: 61:     setup();
-[e ( _setup ..  ]
 "62
-[; ;mainM.c: 62:     while(1){
+[; ;mainM.c: 62:     setup();
+[e ( _setup ..  ]
+"63
+[; ;mainM.c: 63:     while(1){
 [e :U 140 ]
 {
 "66
-[; ;mainM.c: 66:         I2C_Master_Start();
-[e ( _I2C_Master_Start ..  ]
+[; ;mainM.c: 66:         count = toggle%3;
+[e = _count -> % -> _toggle `i -> 3 `i `uc ]
 "67
-[; ;mainM.c: 67:         I2C_Master_Write(0x69);
-[e ( _I2C_Master_Write (1 -> -> 105 `i `ui ]
+[; ;mainM.c: 67:         I2C_Master_Start();
+[e ( _I2C_Master_Start ..  ]
 "68
-[; ;mainM.c: 68:         if(toggle%2){
-[e $ ! != % -> _toggle `i -> 2 `i -> 0 `i 142  ]
-{
+[; ;mainM.c: 68:         I2C_Master_Write(0x69);
+[e ( _I2C_Master_Write (1 -> -> 105 `i `ui ]
 "69
-[; ;mainM.c: 69:             adc = I2C_Master_Read(0);
-[e = _adc -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
+[; ;mainM.c: 69:         if(count == 0){
+[e $ ! == -> _count `i -> 0 `i 142  ]
+{
 "70
-[; ;mainM.c: 70:         }else{
+[; ;mainM.c: 70:             adc = I2C_Master_Read(0);
+[e = _adc -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
+"71
+[; ;mainM.c: 71:         }else if(count == 1){
 }
 [e $U 143  ]
 [e :U 142 ]
+[e $ ! == -> _count `i -> 1 `i 144  ]
 {
-"71
-[; ;mainM.c: 71:             counter = I2C_Master_Read(0);
-[e = _counter -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
 "72
-[; ;mainM.c: 72:         }
-}
-[e :U 143 ]
+[; ;mainM.c: 72:             adcl = I2C_Master_Read(0);
+[e = _adcl -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
 "73
-[; ;mainM.c: 73:         toggle++;
-[e ++ _toggle -> -> 1 `i `uc ]
+[; ;mainM.c: 73:         }else if(count == 2){
+}
+[e $U 145  ]
+[e :U 144 ]
+[e $ ! == -> _count `i -> 2 `i 146  ]
+{
 "74
-[; ;mainM.c: 74:         I2C_Master_Stop();
-[e ( _I2C_Master_Stop ..  ]
+[; ;mainM.c: 74:             counter = I2C_Master_Read(0);
+[e = _counter -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
 "75
-[; ;mainM.c: 75:         _delay((unsigned long)((10)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;mainM.c: 75:         }
+}
+[e :U 146 ]
+[e :U 145 ]
+[e :U 143 ]
+"76
+[; ;mainM.c: 76:         toggle++;
+[e ++ _toggle -> -> 1 `i `uc ]
+"77
+[; ;mainM.c: 77:         I2C_Master_Stop();
+[e ( _I2C_Master_Stop ..  ]
 "78
-[; ;mainM.c: 78:         setCursorLCD(2, 15);
-[e ( _setCursorLCD (2 , -> -> 2 `i `uc -> -> 15 `i `uc ]
-"79
-[; ;mainM.c: 79:         writeIntLCD(adc);
-[e ( _writeIntLCD (1 _adc ]
-"80
-[; ;mainM.c: 80:         writeStrLCD("  ");
-[e ( _writeStrLCD (1 :s 1C ]
-"82
-[; ;mainM.c: 82:         sensorF1 = (float) (adc-20) * 3.04;
-[e = _sensorF1 -> * -> -> - -> _adc `i -> 20 `i `f `d .3.04 `f ]
+[; ;mainM.c: 78:         _delay((unsigned long)((10)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"81
+[; ;mainM.c: 81:         setCursorLCD(2, 1);
+[e ( _setCursorLCD (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
 "83
-[; ;mainM.c: 83:         entero1 = (int) sensorF1;
-[e = _entero1 -> -> _sensorF1 `i `uc ]
-"84
-[; ;mainM.c: 84:         float1 = (sensorF1 - entero1)*100;
-[e = _float1 * - _sensorF1 -> -> _entero1 `i `f -> -> 100 `i `f ]
+[; ;mainM.c: 83:         writeADC = adc*256+adcl;
+[e = _writeADC -> + * -> _adc `i -> 256 `i -> _adcl `i `ui ]
 "85
-[; ;mainM.c: 85:         dec1 = (int) float1;
-[e = _dec1 -> -> _float1 `i `uc ]
-"87
-[; ;mainM.c: 87:         writeFloat(entero1, dec1, 1);
-[e ( _writeFloat (3 , , _entero1 _dec1 -> -> 1 `i `uc ]
+[; ;mainM.c: 85:         writeStrLCD("  ");
+[e ( _writeStrLCD (1 :s 1C ]
 "88
-[; ;mainM.c: 88:         setCursorLCD(2, 9);
-[e ( _setCursorLCD (2 , -> -> 2 `i `uc -> -> 9 `i `uc ]
+[; ;mainM.c: 88:         entero1 = (int) sensorF1;
+[e = _entero1 -> -> _sensorF1 `i `uc ]
 "89
-[; ;mainM.c: 89:         writeIntLCD(counter);
-[e ( _writeIntLCD (1 _counter ]
+[; ;mainM.c: 89:         float1 = (sensorF1 - entero1)*100;
+[e = _float1 * - _sensorF1 -> -> _entero1 `i `f -> -> 100 `i `f ]
 "90
-[; ;mainM.c: 90:         writeCharLCD(' ');
-[e ( _writeCharLCD (1 -> -> 32 `ui `uc ]
+[; ;mainM.c: 90:         dec1 = (int) float1;
+[e = _dec1 -> -> _float1 `i `uc ]
 "92
-[; ;mainM.c: 92:         writeStrLCD("  ");
-[e ( _writeStrLCD (1 :s 2C ]
+[; ;mainM.c: 92:         writeFloat(entero1, dec1, 1);
+[e ( _writeFloat (3 , , _entero1 _dec1 -> -> 1 `i `uc ]
 "93
-[; ;mainM.c: 93:     }
+[; ;mainM.c: 93:         setCursorLCD(2, 9);
+[e ( _setCursorLCD (2 , -> -> 2 `i `uc -> -> 9 `i `uc ]
+"94
+[; ;mainM.c: 94:         writeIntLCD(counter);
+[e ( _writeIntLCD (1 _counter ]
+"95
+[; ;mainM.c: 95:         writeCharLCD(' ');
+[e ( _writeCharLCD (1 -> -> 32 `ui `uc ]
+"97
+[; ;mainM.c: 97:         writeStrLCD("  ");
+[e ( _writeStrLCD (1 :s 2C ]
+"98
+[; ;mainM.c: 98:     }
 }
 [e :U 139 ]
 [e $U 140  ]
 [e :U 141 ]
-"94
-[; ;mainM.c: 94:     return;
+"99
+[; ;mainM.c: 99:     return;
 [e $UE 138  ]
-"95
-[; ;mainM.c: 95: }
+"100
+[; ;mainM.c: 100: }
 [e :UE 138 ]
 }
-"99
-[; ;mainM.c: 99: void setup(void){
+"104
+[; ;mainM.c: 104: void setup(void){
 [v _setup `(v ~T0 @X0 1 ef ]
 {
 [e :U _setup ]
 [f ]
-"101
-[; ;mainM.c: 101:     ANSEL = 0;
-[e = _ANSEL -> -> 0 `i `uc ]
-"102
-[; ;mainM.c: 102:     ANSELH = 0;
-[e = _ANSELH -> -> 0 `i `uc ]
-"103
-[; ;mainM.c: 103:     TRISB = 0;
-[e = _TRISB -> -> 0 `i `uc ]
-"104
-[; ;mainM.c: 104:     TRISD = 0;
-[e = _TRISD -> -> 0 `i `uc ]
-"105
-[; ;mainM.c: 105:     PORTB = 0;
-[e = _PORTB -> -> 0 `i `uc ]
 "106
-[; ;mainM.c: 106:     PORTD = 0;
-[e = _PORTD -> -> 0 `i `uc ]
+[; ;mainM.c: 106:     ANSEL = 0;
+[e = _ANSEL -> -> 0 `i `uc ]
 "107
-[; ;mainM.c: 107:     I2C_Master_Init(100000);
-[e ( _I2C_Master_Init (1 -> -> 100000 `l `ul ]
+[; ;mainM.c: 107:     ANSELH = 0;
+[e = _ANSELH -> -> 0 `i `uc ]
+"108
+[; ;mainM.c: 108:     TRISB = 0;
+[e = _TRISB -> -> 0 `i `uc ]
 "109
-[; ;mainM.c: 109:     initLCD();
-[e ( _initLCD ..  ]
+[; ;mainM.c: 109:     TRISD = 0;
+[e = _TRISD -> -> 0 `i `uc ]
 "110
-[; ;mainM.c: 110:     clcLCD();
-[e ( _clcLCD ..  ]
-"113
-[; ;mainM.c: 113:     setCursorLCD(1, 1);
-[e ( _setCursorLCD (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+[; ;mainM.c: 110:     PORTB = 0;
+[e = _PORTB -> -> 0 `i `uc ]
+"111
+[; ;mainM.c: 111:     PORTD = 0;
+[e = _PORTD -> -> 0 `i `uc ]
+"112
+[; ;mainM.c: 112:     I2C_Master_Init(100000);
+[e ( _I2C_Master_Init (1 -> -> 100000 `l `ul ]
 "114
-[; ;mainM.c: 114:     writeStrLCD("S1");
-[e ( _writeStrLCD (1 :s 3C ]
+[; ;mainM.c: 114:     initLCD();
+[e ( _initLCD ..  ]
 "115
-[; ;mainM.c: 115:     setCursorLCD(1, 7);
-[e ( _setCursorLCD (2 , -> -> 1 `i `uc -> -> 7 `i `uc ]
-"116
-[; ;mainM.c: 116:     writeStrLCD("S2");
-[e ( _writeStrLCD (1 :s 4C ]
-"117
-[; ;mainM.c: 117:     setCursorLCD(1, 13);
-[e ( _setCursorLCD (2 , -> -> 1 `i `uc -> -> 13 `i `uc ]
+[; ;mainM.c: 115:     clcLCD();
+[e ( _clcLCD ..  ]
 "118
-[; ;mainM.c: 118:     writeStrLCD("S3");
-[e ( _writeStrLCD (1 :s 5C ]
+[; ;mainM.c: 118:     setCursorLCD(1, 1);
+[e ( _setCursorLCD (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
 "119
-[; ;mainM.c: 119: }
-[e :UE 144 ]
+[; ;mainM.c: 119:     writeStrLCD("S1");
+[e ( _writeStrLCD (1 :s 3C ]
+"120
+[; ;mainM.c: 120:     setCursorLCD(1, 7);
+[e ( _setCursorLCD (2 , -> -> 1 `i `uc -> -> 7 `i `uc ]
+"121
+[; ;mainM.c: 121:     writeStrLCD("S2");
+[e ( _writeStrLCD (1 :s 4C ]
+"122
+[; ;mainM.c: 122:     setCursorLCD(1, 13);
+[e ( _setCursorLCD (2 , -> -> 1 `i `uc -> -> 13 `i `uc ]
+"123
+[; ;mainM.c: 123:     writeStrLCD("S3");
+[e ( _writeStrLCD (1 :s 5C ]
+"124
+[; ;mainM.c: 124: }
+[e :UE 147 ]
 }
 [a 5C 83 51 0 ]
 [a 4C 83 50 0 ]
