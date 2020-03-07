@@ -2902,7 +2902,7 @@ void writeIntLCD(uint8_t numero){
 }
 
 void writeIntLCD16(uint16_t numero){
-    char buffer [8];
+    char buffer [5];
     sprintf (buffer, "%d", numero);
     writeStrLCD(buffer);
 }

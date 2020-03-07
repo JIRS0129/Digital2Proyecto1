@@ -457,8 +457,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _numero `ui ~T0 @X0 1 r1 ]
 [f ]
 "64
-[; ;LCD.c: 64:     char buffer [8];
-[v _buffer `uc ~T0 @X0 -> 8 `i a ]
+[; ;LCD.c: 64:     char buffer [5];
+[v _buffer `uc ~T0 @X0 -> 5 `i a ]
 "65
 [; ;LCD.c: 65:     sprintf (buffer, "%d", numero);
 [e ( _sprintf (1 , (. , &U _buffer :s 2C _numero ]

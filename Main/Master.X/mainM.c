@@ -52,7 +52,6 @@ uint8_t entero2, dec2;
 float sensorF1, float1;
 float sensorF2, float2;
 uint8_t toggle, s3, count = 0;
-uint16_t writeADC;
 float lux;
 
 //*****************************************************************************
@@ -78,10 +77,8 @@ void main(void) {
         __delay_ms(10); 
         
         
-        setCursorLCD(2, 1);
-        //writeIntLCD(adc);
-        writeADC = adc*256+adcl;
-        //writeIntLCD16((adc*256+adcl)/256);
+        setCursorLCD(2, 15);
+        writeIntLCD(adc);
         writeStrLCD("  ");
         //Potentiometer's processing
         //sensorF1 = (float) (adc-20) * 3.04; //Conversion from 0 to 5V

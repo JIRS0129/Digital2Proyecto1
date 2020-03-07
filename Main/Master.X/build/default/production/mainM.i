@@ -2762,7 +2762,7 @@ uint8_t adc, adcl, entero1, dec1, counter;
 uint8_t entero2, dec2;
 float sensorF1, float1;
 float sensorF2, float2;
-uint8_t toggle, s3, count = 0;
+uint8_t toggle, s3, count, mov = 0;
 uint16_t writeADC;
 float lux;
 
@@ -2788,6 +2788,16 @@ void main(void) {
         I2C_Master_Stop();
         _delay((unsigned long)((10)*(4000000/4000.0)));
 
+
+        I2C_Master_Start();
+        I2C_Master_Write(0x61);
+        mov = I2C_Master_Read(0);
+        I2C_Master_Stop();
+        _delay((unsigned long)((10)*(4000000/4000.0)));
+
+        if(mov){
+            PORTDbits.RD2 = mov;
+        }
 
         setCursorLCD(2, 1);
 

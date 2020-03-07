@@ -58,10 +58,10 @@ void writeIntLCD(uint8_t numero){       //Converts integer to string and writes 
     char buffer [4];
     sprintf (buffer, "%d", numero);
     writeStrLCD(buffer);
-}
+}//
 
-void writeIntLCD16(uint16_t numero){       //Converts integer to string and writes to LCD
-    char buffer [8];
+void writeIntLCD16(uint16_t numero){       //Converts integer de 16 to string and writes to LCD
+    char buffer [5];
     sprintf (buffer, "%d", numero);
     writeStrLCD(buffer);
 }
