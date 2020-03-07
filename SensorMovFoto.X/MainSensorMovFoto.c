@@ -26,12 +26,13 @@
 
 //------------------------------------------------------------------------------
 //-------------------------------VARIABLES--------------------------------------
-unsigned char varADC = 0;
-unsigned char multiplex;
-unsigned char select = 0;
-unsigned char z = 0;
-unsigned char Signal = 0;
-unsigned char SendSignal = 0;
+uint8_t varADC = 0;
+uint8_t multiplex;
+uint8_t select = 0;
+uint8_t z = 0;
+uint8_t Signal = 0;
+uint8_t SendSignal = 0;
+uint8_t counter;
 //------------------------------------------------------------------------------
 //-------------------------------PROTOTIPOS-------------------------------------
 void inicio(void); 
@@ -90,7 +91,14 @@ void __interrupt() isr(void){
         else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
             z = SSPBUF;
             BF = 0;
-            SSPBUF = SendSignal;
+            select = counter%3;
+            if(select == 0){
+                SSPBUF = SendSignal;
+            }else if(select == 1){
+                SSPBUF = ValorADC;
+            }else{
+                SSPBUF = VarMOV;
+            }
             SSPCONbits.CKP = 1;
             __delay_us(250);
             while(SSPSTATbits.BF);
@@ -109,6 +117,8 @@ void main(void) {
         VarMOV = PORTBbits.RB0; //Leerá el valor del puerto donde está el sensor
         if (VarMOV == 1){
             Signal = 1;
+        }else{
+            Signal = 0;
         }
         if (varADC == 1){       //REVISA LA BANDERA PROPIA PARA EL ADC
             LeerADC();          //LLAMA A LA FUNCION DE LA LIBRERIA 

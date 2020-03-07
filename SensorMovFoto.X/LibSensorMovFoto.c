@@ -41,6 +41,8 @@ void LeerADC(void){
         ValorADC = ADRESH;        //GUARDA EL VALOR DEL ADC EN UNA VARIABLE
         if (ValorADC <= 51){
             Signal2 = 1;
+        }else{
+            Signal2 = 0;
         }
         ADCON0bits.GO_DONE = 1; //INICIALIZACION DE CONVERSION
     }          
