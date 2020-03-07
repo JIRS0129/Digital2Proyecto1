@@ -43,8 +43,7 @@
 uint8_t z;
 uint8_t dato, received = 0;
 uint8_t hall, count;
-uint8_t adcl, adch, adcTemp;
-uint16_t adc, adc_n1, adc_n = 0;
+uint16_t adc_n1, adc_n = 0;
 //*****************************************************************************
 // Definición de funciones para que se puedan colocar después del main de lo 
 // contrario hay que colocarlos todas las funciones antes del main
@@ -80,12 +79,9 @@ void __interrupt() isr(void){
             BF = 0;
             count = received%3;
             if(count == 0){
-                adcTemp = adc*255;
-                SSPBUF = adcTemp;
+                SSPBUF = adc_n;
             }else if(count == 1){
-                adcTemp = adc & 3840;
-                adcTemp = adcTemp/256;
-                SSPBUF = adcTemp;
+                SSPBUF = PORTBbits.RB6;
             }else if(count == 2){
                 SSPBUF = hall;
             }
@@ -98,8 +94,7 @@ void __interrupt() isr(void){
         PIR1bits.SSPIF = 0;    
     }
     if(ADCON0bits.GO_DONE == 0){   //If ADC interrupt
-        adcl = ADRESL;
-        adch = ADRESH;
+        adc = readADC();
         PIR1bits.ADIF = 0;          //Clear ADC flag
     }
 }
@@ -127,10 +122,8 @@ void main(void) {
             ADCON0bits.GO_DONE = 1;         //Start a new one
         }
         
-        adc = adch * 256  + adcl;
-        adc = adc/64;
-        adc_n = 0.9*adc + 0.1*adc_n1;
-
+        adc_n = adc_n1*0.8 + 0.2*adc;
+        adc_n1 = adc_n;
     }
     return;
 }

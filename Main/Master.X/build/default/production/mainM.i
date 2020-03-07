@@ -2758,12 +2758,12 @@ extern double round(double);
 # 48 "mainM.c"
 void setup(void);
 
-uint8_t adc, adcl, entero1, dec1, counter;
+uint8_t adcT, entero1, dec1, alarm, hall;
 uint8_t entero2, dec2;
 float sensorF1, float1;
 float sensorF2, float2;
-uint8_t toggle, s3, count, mov = 0;
-uint16_t writeADC;
+uint8_t toggle, s3, count = 0;
+uint8_t toggle2, count2, adcP, signal, mov = 0;
 float lux;
 
 
@@ -2778,43 +2778,51 @@ void main(void) {
         I2C_Master_Start();
         I2C_Master_Write(0x69);
         if(count == 0){
-            adc = I2C_Master_Read(0);
+            adcT = I2C_Master_Read(0);
         }else if(count == 1){
-            adcl = I2C_Master_Read(0);
+            alarm = I2C_Master_Read(0);
         }else if(count == 2){
-            counter = I2C_Master_Read(0);
+            hall = I2C_Master_Read(0);
         }
         toggle++;
         I2C_Master_Stop();
         _delay((unsigned long)((10)*(4000000/4000.0)));
 
-
+        count2 = toggle2%3;
         I2C_Master_Start();
         I2C_Master_Write(0x61);
-        mov = I2C_Master_Read(0);
+        if(count2 == 0){
+            signal = I2C_Master_Read(0);
+        }else if(count2 == 1){
+            adcP = I2C_Master_Read(0);
+        }else if(count2 == 2){
+            mov = I2C_Master_Read(0);
+        }
+        toggle2++;
         I2C_Master_Stop();
         _delay((unsigned long)((10)*(4000000/4000.0)));
-
-        if(mov){
-            PORTDbits.RD2 = mov;
+# 101 "mainM.c"
+        if(signal){
+            PORTDbits.RD2 = 1;
+        }else{
+            PORTDbits.RD2 = 0;
         }
 
-        setCursorLCD(2, 1);
-
-        writeADC = adc*256+adcl;
-
-        writeStrLCD("  ");
-
-
-        entero1 = (int) sensorF1;
-        float1 = (sensorF1 - entero1)*100;
+        sensorF1 = (float) adcT * 5/255;
+        sensorF2 = (float) sensorF1/0.01;
+        entero1 = (int) sensorF2;
+        float1 = (sensorF2 - entero1)*100;
         dec1 = (int) float1;
 
-        writeFloat(entero1, dec1, 1);
-        setCursorLCD(2, 9);
-        writeIntLCD(counter);
+        setCursorLCD(2, 1);
+        writeIntLCD(adcT);
         writeCharLCD(' ');
-
+        writeCharLCD(' ');
+        setCursorLCD(2, 6);
+        writeIntLCD(alarm);
+        setCursorLCD(2, 8);
+        writeIntLCD(hall);
+        writeFloat(entero1, dec1, 10);
         writeStrLCD("  ");
     }
     return;

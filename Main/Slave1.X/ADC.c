@@ -4,7 +4,7 @@
 
 
 uint8_t readADC(void){  //Returns ADC's convertion
-    return ADRESH;
+    return ADRESL;
 }
 
 void selCanal(uint8_t channel){     //Changes channel to desired one
@@ -135,7 +135,7 @@ void configADC(uint8_t FOSC){       //Configures everything needed for ADC inter
     INTCONbits.PEIE=1;  //Enable peripherial interrupts
     PIE1bits.ADIE = 1;  //Enables ADC interrupts
     PIR1bits.ADIF=0; // Clear ADC flag
-    ADCON1bits.ADFM=0; // Left Justification
+    ADCON1bits.ADFM=1; // Left Justification
     ADCON1bits.VCFG1=0; // Ref
     ADCON1bits.VCFG0=0; // Ref
     ADCON0bits.ADON=1;  //Activate ADC

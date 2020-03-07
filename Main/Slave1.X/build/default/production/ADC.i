@@ -2646,7 +2646,7 @@ void configCanal(uint8_t channel);
 
 
 uint8_t readADC(void){
-    return ADRESH;
+    return ADRESL;
 }
 
 void selCanal(uint8_t channel){
@@ -2777,7 +2777,7 @@ void configADC(uint8_t FOSC){
     INTCONbits.PEIE=1;
     PIE1bits.ADIE = 1;
     PIR1bits.ADIF=0;
-    ADCON1bits.ADFM=0;
+    ADCON1bits.ADFM=1;
     ADCON1bits.VCFG1=0;
     ADCON1bits.VCFG0=0;
     ADCON0bits.ADON=1;

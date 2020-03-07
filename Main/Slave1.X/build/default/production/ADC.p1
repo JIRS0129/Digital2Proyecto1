@@ -1,7 +1,7 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"1238 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1238: extern volatile unsigned char ADRESH __attribute__((address(0x01E)));
-[v _ADRESH `Vuc ~T0 @X0 0 e@30 ]
+"2970 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 2970: extern volatile unsigned char ADRESL __attribute__((address(0x09E)));
+[v _ADRESL `Vuc ~T0 @X0 0 e@158 ]
 "1251
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1251:     struct {
 [s S45 :1 `uc 1 :1 `uc 1 :4 `uc 1 :2 `uc 1 ]
@@ -376,8 +376,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _readADC ]
 [f ]
 "7
-[; ;ADC.c: 7:     return ADRESH;
-[e ) _ADRESH ]
+[; ;ADC.c: 7:     return ADRESL;
+[e ) _ADRESL ]
 [e $UE 138  ]
 "8
 [; ;ADC.c: 8: }
@@ -792,8 +792,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;ADC.c: 137:     PIR1bits.ADIF=0;
 [e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
 "138
-[; ;ADC.c: 138:     ADCON1bits.ADFM=0;
-[e = . . _ADCON1bits 0 4 -> -> 0 `i `uc ]
+[; ;ADC.c: 138:     ADCON1bits.ADFM=1;
+[e = . . _ADCON1bits 0 4 -> -> 1 `i `uc ]
 "139
 [; ;ADC.c: 139:     ADCON1bits.VCFG1=0;
 [e = . . _ADCON1bits 0 2 -> -> 0 `i `uc ]

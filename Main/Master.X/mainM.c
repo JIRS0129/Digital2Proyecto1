@@ -47,11 +47,12 @@
 //*****************************************************************************
 void setup(void);
 
-uint8_t adc, adcl, entero1, dec1, counter;
+uint8_t adcT, entero1, dec1, alarm, hall;
 uint8_t entero2, dec2;
 float sensorF1, float1;
 float sensorF2, float2;
 uint8_t toggle, s3, count = 0;
+uint8_t toggle2, count2, adcP, signal, mov = 0;
 float lux;
 
 //*****************************************************************************
@@ -66,31 +67,58 @@ void main(void) {
         I2C_Master_Start();
         I2C_Master_Write(0x69);
         if(count == 0){
-            adc = I2C_Master_Read(0);
+            adcT = I2C_Master_Read(0);
         }else if(count == 1){
-            adcl = I2C_Master_Read(0);
+            alarm = I2C_Master_Read(0);
         }else if(count == 2){
-            counter = I2C_Master_Read(0);
+            hall = I2C_Master_Read(0);
         }
         toggle++;
         I2C_Master_Stop();
         __delay_ms(10); 
         
+        count2 = toggle2%3;
+        I2C_Master_Start();
+        I2C_Master_Write(0x61);
+        if(count2 == 0){
+            signal = I2C_Master_Read(0);
+        }else if(count2 == 1){
+            adcP = I2C_Master_Read(0);
+        }else if(count2 == 2){
+            mov = I2C_Master_Read(0);
+        }
+        toggle2++;
+        I2C_Master_Stop();
+        __delay_ms(10); 
         
-        setCursorLCD(2, 15);
-        writeIntLCD(adc);
-        writeStrLCD("  ");
+        
+        /*setCursorLCD(2, 1);
+        writeIntLCD(adcP);
+        setCursorLCD(2, 5);
+        writeIntLCD(mov);
+        setCursorLCD(2, 7);
+        writeIntLCD(signal);*/
+        if(signal){
+            PORTDbits.RD2 = 1;
+        }else{
+            PORTDbits.RD2 = 0;
+        }
         //Potentiometer's processing
-        //sensorF1 = (float) (adc-20) * 3.04; //Conversion from 0 to 5V
-        entero1 = (int) sensorF1;           //Takes only the integer from convertion
-        float1 = (sensorF1 - entero1)*100;  //Subtraction and multiplication to leave the 2 decimals as integers
+        sensorF1 = (float) adcT * 5/255; //Conversion from 0 to 5V
+        sensorF2 = (float) sensorF1/0.01;
+        entero1 = (int) sensorF2;           //Takes only the integer from convertion
+        float1 = (sensorF2 - entero1)*100;  //Subtraction and multiplication to leave the 2 decimals as integers
         dec1 = (int) float1;                //Takes the integer (which is the 2 decimals from convertion)
         
-        writeFloat(entero1, dec1, 1);       //Writes first number starting from position 1
-        setCursorLCD(2, 9);
-        writeIntLCD(counter);
+        setCursorLCD(2, 1);
+        writeIntLCD(adcT);
         writeCharLCD(' ');
-        //writeFloat(entero2, dec2, 13);       //Writes first number starting from position 1
+        writeCharLCD(' ');
+        setCursorLCD(2, 6);
+        writeIntLCD(alarm);
+        setCursorLCD(2, 8);
+        writeIntLCD(hall);
+        writeFloat(entero1, dec1, 10);       //Writes first number starting from position 1
         writeStrLCD("  ");
     }
     return;

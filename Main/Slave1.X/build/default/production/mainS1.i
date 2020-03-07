@@ -2732,6 +2732,7 @@ void setWidth(uint16_t time);
 uint8_t z;
 uint8_t dato, received = 0;
 uint8_t hall, count;
+uint16_t adc_n1, adc_n = 0;
 
 
 
@@ -2767,9 +2768,9 @@ void __attribute__((picinterrupt(""))) isr(void){
             BF = 0;
             count = received%3;
             if(count == 0){
-                SSPBUF = ADRESH;
+                SSPBUF = adc_n;
             }else if(count == 1){
-                SSPBUF = ADRESL;
+                SSPBUF = PORTBbits.RB6;
             }else if(count == 2){
                 SSPBUF = hall;
             }
@@ -2782,6 +2783,7 @@ void __attribute__((picinterrupt(""))) isr(void){
         PIR1bits.SSPIF = 0;
     }
     if(ADCON0bits.GO_DONE == 0){
+        adc = readADC();
         PIR1bits.ADIF = 0;
     }
 }
@@ -2808,6 +2810,9 @@ void main(void) {
         if(ADCON0bits.GO_DONE == 0){
             ADCON0bits.GO_DONE = 1;
         }
+
+        adc_n = adc_n1*0.8 + 0.2*adc;
+        adc_n1 = adc_n;
     }
     return;
 }
