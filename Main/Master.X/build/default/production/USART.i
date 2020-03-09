@@ -1,4 +1,4 @@
-# 1 "mainM.c"
+# 1 "USART.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,30 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "mainM.c" 2
-# 12 "mainM.c"
-#pragma config FOSC = INTRC_NOCLKOUT
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = OFF
-#pragma config CP = OFF
-#pragma config CPD = OFF
-#pragma config BOREN = OFF
-#pragma config IESO = OFF
-#pragma config FCMEN = OFF
-#pragma config LVP = OFF
-
-
-#pragma config BOR4V = BOR40V
-#pragma config WRT = OFF
-
-
-
-
-
-
-
-
+# 1 "USART.c" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\c90\\stdint.h" 3
 typedef signed char int8_t;
@@ -163,8 +140,47 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 33 "mainM.c" 2
+# 1 "USART.c" 2
 
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 1 3
+# 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 3
+extern const char __xc8_OPTIM_SPEED;
+
+extern double __fpnormalize(double);
+
+
+
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\c90\\xc8debug.h" 1 3
+# 13 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\c90\\xc8debug.h" 3
+#pragma intrinsic(__builtin_software_breakpoint)
+extern void __builtin_software_breakpoint(void);
+# 23 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 2 3
+
+
+
+
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\pic.h" 1 3
+
+
+
+
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\htc.h" 1 3
+
+
+
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 1 3
+# 4 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\htc.h" 2 3
+# 5 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\pic.h" 2 3
+
+
+
+
+
+
+
+
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\pic_chip_select.h" 1 3
+# 2703 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\pic_chip_select.h" 3
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\pic16f887.h" 1 3
 # 44 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\pic16f887.h" 3
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\__at.h" 1 3
@@ -2576,48 +2592,7 @@ extern volatile __bit nW __attribute__((address(0x4A2)));
 
 
 extern volatile __bit nWRITE __attribute__((address(0x4A2)));
-# 34 "mainM.c" 2
-
-# 1 "./I2C.h" 1
-# 18 "./I2C.h"
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 1 3
-# 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 3
-extern const char __xc8_OPTIM_SPEED;
-
-extern double __fpnormalize(double);
-
-
-
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\c90\\xc8debug.h" 1 3
-# 13 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\c90\\xc8debug.h" 3
-#pragma intrinsic(__builtin_software_breakpoint)
-extern void __builtin_software_breakpoint(void);
-# 23 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 2 3
-
-
-
-
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\pic.h" 1 3
-
-
-
-
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\htc.h" 1 3
-
-
-
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 1 3
-# 4 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\htc.h" 2 3
-# 5 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\pic.h" 2 3
-
-
-
-
-
-
-
-
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\pic_chip_select.h" 1 3
+# 2703 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\pic_chip_select.h" 2 3
 # 13 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\pic.h" 2 3
 # 30 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\pic.h" 3
 #pragma intrinsic(__nop)
@@ -2651,89 +2626,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 2 3
-# 18 "./I2C.h" 2
-
-
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\c90\\stdint.h" 1 3
-# 20 "./I2C.h" 2
-# 29 "./I2C.h"
-void I2C_Master_Init(const unsigned long c);
-
-
-
-
-
-
-
-void I2C_Master_Wait(void);
-
-
-
-void I2C_Master_Start(void);
-
-
-
-void I2C_Master_RepeatedStart(void);
-
-
-
-void I2C_Master_Stop(void);
-
-
-
-
-
-void I2C_Master_Write(unsigned d);
-
-
-
-
-unsigned short I2C_Master_Read(unsigned short a);
-
-
-
-void I2C_Slave_Init(uint8_t address);
-# 35 "mainM.c" 2
-
-# 1 "./LCD.h" 1
-
-
-
-
-
-
-
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\c90\\stdint.h" 1 3
-# 8 "./LCD.h" 2
-# 21 "./LCD.h"
-uint8_t cursor = 0;
-
-
-void initLCD(void);
-void setCursorLCD(uint8_t y, uint8_t x);
-void clcLCD(void);
-void writeStrLCD(uint8_t *a);
-void writeCharLCD(uint8_t character);
-void cmdLCD(uint8_t cmd);
-void writeIntLCD(uint8_t numero);
-void writeIntLCD16(uint16_t numero);
-void writeFloat(uint8_t integer, uint8_t decimals, uint8_t initPos);
-# 36 "mainM.c" 2
-
-# 1 "./ADC.h" 1
-# 10 "./ADC.h"
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\c90\\stdint.h" 1 3
-# 10 "./ADC.h" 2
-
-
-unsigned char adcValue = 0;
-
-
-void configADC(uint8_t FOSC);
-uint8_t readADC(void);
-void selCanal(uint8_t channel);
-void configCanal(uint8_t channel);
-# 37 "mainM.c" 2
+# 2 "USART.c" 2
 
 # 1 "./USART.h" 1
 
@@ -2748,251 +2641,49 @@ void configCanal(uint8_t channel);
 # 17 "./USART.h"
 void initUSART(uint16_t baudrate, uint8_t txint, uint8_t rcint, uint8_t syncrono);
 void sendUSART (uint8_t data);
-# 38 "mainM.c" 2
-# 49 "mainM.c"
-void setup(void);
-
-uint8_t adcT, adc, entero1, dec1, alarm, hall;
-uint8_t entero2, dec2;
-float sensorF1, float1;
-float sensorF2, float2;
-uint8_t toggle, s3, count = 0;
-uint8_t toggle2, count2, adcP, signal, mov = 0;
-uint8_t toggle3, count3, ir, garage = 0;
-uint8_t antibounce, antibounce2, screenCounter, screenState = 0;
-uint8_t receiveUSART;
+# 3 "USART.c" 2
 
 
+void initUSART(uint16_t baudrate, uint8_t txint, uint8_t rcint, uint8_t syncrono){
+    TRISCbits.TRISC7 = 1;
 
+    PIE1bits.RCIE = 0;
 
-void __attribute__((picinterrupt(""))) isr(void){
-    if(ADCON0bits.GO_DONE == 0){
-        adc = readADC();
-        PIR1bits.ADIF = 0;
+    RCSTAbits.SPEN = 1;
+    TXSTAbits.SYNC = syncrono;
+
+    if(rcint){
+        RCSTAbits.CREN = 1;
+        PIE1bits.RCIE = 1;
+        PIR1bits.RCIF = 0;
+    }
+    if(txint){
+        TXSTAbits.TXEN = 1;
     }
 
-    if(PIR1bits.RCIF == 1){
-        PORTAbits.RA0 = 1;
-        receiveUSART = RCREG;
+    BAUDCTLbits.BRG16 = 1;
+    TXSTAbits.BRGH = 0;
+
+    if(baudrate == 300){
+        SPBRG = 0x40;
+        SPBRGH = 0x03;
+    } else if (baudrate == 1200){
+        SPBRG = 207;
+    } else if (baudrate == 2400){
+        SPBRG = 103;
+    } else if (baudrate == 9600){
+        SPBRG = 25;
+    } else if (baudrate == 10417){
+        SPBRG = 23;
+    } else if (baudrate == 19200){
+        SPBRG = 12;
     }
+    INTCONbits.PEIE = 1;
+    INTCONbits.GIE = 1;
 }
 
-
-
-void main(void) {
-    setup();
-    while(1){
-        if(ADCON0bits.GO_DONE == 0){
-           ADCON0bits.GO_DONE = 1;
-        }
-
-        count = toggle%3;
-        I2C_Master_Start();
-        I2C_Master_Write(0x69);
-        if(count == 0){
-            adcT = I2C_Master_Read(0);
-        }else if(count == 1){
-            alarm = I2C_Master_Read(0);
-        }else if(count == 2){
-            hall = I2C_Master_Read(0);
-        }
-        toggle++;
-        I2C_Master_Stop();
-        _delay((unsigned long)((10)*(4000000/4000.0)));
-
-
-        count2 = toggle2%3;
-        I2C_Master_Start();
-        I2C_Master_Write(0x61);
-        if(count2 == 0){
-            signal = I2C_Master_Read(0);
-        }else if(count2 == 1){
-            adcP = I2C_Master_Read(0);
-        }else if(count2 == 2){
-            mov = I2C_Master_Read(0);
-        }
-        toggle2++;
-        I2C_Master_Stop();
-        _delay((unsigned long)((10)*(4000000/4000.0)));
-
-
-        count3 = toggle3%2;
-        I2C_Master_Start();
-        I2C_Master_Write(0x71);
-        if(count3 == 0){
-            ir = I2C_Master_Read(0);
-        }else if(count3 == 1){
-            garage = I2C_Master_Read(0);
-        }
-        toggle3++;
-        I2C_Master_Stop();
-        _delay((unsigned long)((10)*(4000000/4000.0)));
-
-
-
-        sensorF1 = (float) adcT * 5/255;
-        sensorF2 = (float) sensorF1/0.01;
-        entero1 = (int) sensorF2;
-        float1 = (sensorF2 - entero1)*100;
-        dec1 = (int) float1;
-
-
-        if(PORTAbits.RA1){
-            antibounce = 1;
-        }
-        if(PORTAbits.RA1 == 0 && antibounce){
-            screenCounter++;
-            screenCounter = screenCounter%3;
-            antibounce = 0;
-        }
-
-
-        if(PORTAbits.RA2){
-            antibounce2 = 1;
-        }
-        if(PORTAbits.RA2 == 0 && antibounce2){
-            screenState++;
-            screenState = screenState%2;
-            antibounce2 = 0;
-        }
-
-        if(signal){
-            PORTAbits.RA0 = 1;
-        }else{
-            PORTAbits.RA0 = 0;
-        }
-
-        if(entero1 >= 60){
-            PORTAbits.RA4 = 1;
-        }else{
-            PORTAbits.RA4 = 0;
-        }
-
-
-        if(receiveUSART==0){
-            sendUSART(signal);
-        }else if(receiveUSART==1){
-            sendUSART(PORTAbits.RA4);
-        }else if(receiveUSART==2){
-            sendUSART(garage);
-        }else if(receiveUSART==3){
-            sendUSART(hall);
-        }else if(receiveUSART==4){
-            sendUSART(entero1);
-        }else if(receiveUSART==5){
-            sendUSART((uint8_t) adcP*100/255);
-        }else if(receiveUSART==6){
-            sendUSART(mov);
-        }else if(receiveUSART==7){
-            sendUSART(alarm);
-        }
-
-
-
-
-        if(screenState == 0){
-            setCursorLCD(1, 1);
-            if(screenCounter == 0){
-                writeStrLCD("TEMP ");
-                writeIntLCD(entero1);
-                writeCharLCD('°');
-                writeCharLCD('C');
-            }else if(screenCounter == 1){
-                writeStrLCD("LUZ ");
-                writeIntLCD((uint8_t) adcP*100/255);
-                writeCharLCD(' ');
-                writeCharLCD('%');
-            }
-            writeStrLCD("           ");
-
-
-            setCursorLCD(2, 1);
-            if(screenCounter == 0){
-                writeStrLCD("PUERTA ");
-                if(hall){
-                    writeStrLCD("ABIERTA");
-                }else{
-                    writeStrLCD("CERRADA");
-                }
-                writeCharLCD(' ');
-            }else if(screenCounter == 1){
-                if(mov){
-                    writeStrLCD("MOVIMIENTO");
-                }else{
-                    writeStrLCD("SIN MOVIMIENTO");
-                }
-            }else if(screenCounter == 2){
-                if(garage){
-                    writeStrLCD("GARAGE ABIERTO");
-                }else{
-                    writeStrLCD("GARAGE CERRADO");
-                }
-            }
-            writeStrLCD("           ");
-        }else{
-            setCursorLCD(1, 1);
-            if(screenCounter == 0){
-                writeStrLCD("PUERTA ");
-                if(hall){
-                    writeStrLCD("ABIERTA");
-                }else{
-                    writeStrLCD("CERRADA");
-                }
-                writeCharLCD(' ');
-            }else if(screenCounter == 1){
-                if(mov){
-                    writeStrLCD("MOVIMIENTO");
-                }else{
-                    writeStrLCD("SIN MOVIMIENTO");
-                }
-            }
-            setCursorLCD(2, 1);
-            if(screenCounter == 0){
-                writeStrLCD("ALARMA ");
-                if(alarm){
-                    writeStrLCD("ACTIVA");
-                }else{
-                    writeStrLCD("DESCATIVADA");
-                }
-                writeCharLCD(' ');
-            }else if(screenCounter == 1){
-                if(signal){
-                    writeStrLCD("PUERTA ABIERTA");
-                }else{
-                    writeStrLCD("PUERTA CERRADA");
-                }
-            }else if(screenCounter == 2){
-                if(garage){
-                    writeStrLCD("GARAGE ABIERTO");
-                }else{
-                    writeStrLCD("GARAGE CERRADO");
-                }
-            }
-        }
-    }
-    return;
-}
-
-
-
-void setup(void){
-
-    ANSEL = 0;
-    ANSELH = 0;
-    TRISB = 0;
-    TRISD = 0;
-    PORTB = 0;
-    PORTD = 0;
-    I2C_Master_Init(100000);
-
-    initUSART(9600, 1, 1, 0);
-
-    initLCD();
-    clcLCD();
-
-    TRISAbits.TRISA1 = 1;
-    TRISAbits.TRISA2 = 1;
-    TRISAbits.TRISA0 = 0;
-    TRISAbits.TRISA4 = 0;
-    TRISAbits.TRISA5 = 0;
+void sendUSART (uint8_t data){
+    while (TXSTAbits.TRMT == 0){}
+    TXREG = data;
+    _delay((unsigned long)((1)*(4000000/4000.0)));
 }

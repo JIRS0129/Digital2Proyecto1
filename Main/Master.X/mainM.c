@@ -35,6 +35,7 @@
 #include "I2C.h"
 #include "LCD.h"
 #include "ADC.h"
+#include "USART.h"
 #include <xc.h>
 //*****************************************************************************
 // Definición de variables
@@ -55,6 +56,7 @@ uint8_t toggle, s3, count = 0;
 uint8_t toggle2, count2, adcP, signal, mov = 0;
 uint8_t toggle3, count3, ir, garage = 0;
 uint8_t antibounce, antibounce2, screenCounter, screenState = 0;
+uint8_t receiveUSART;
 
 //*****************************************************************************
 // Código de Interrupción 
@@ -63,6 +65,11 @@ void __interrupt() isr(void){
     if(ADCON0bits.GO_DONE == 0){   //If ADC interrupt
         adc = readADC();                    //Activate flag
         PIR1bits.ADIF = 0;          //Clear ADC flag
+    }
+    
+    if(PIR1bits.RCIF == 1){         //If data received by USART
+        PORTAbits.RA0 = 1;
+        receiveUSART = RCREG;      //Read
     }
 }
 //*****************************************************************************
@@ -156,6 +163,26 @@ void main(void) {
         }else{
             PORTAbits.RA4 = 0;
         }
+        
+        
+        if(receiveUSART==0){
+            sendUSART(signal);
+        }else if(receiveUSART==1){
+            sendUSART(PORTAbits.RA4);
+        }else if(receiveUSART==2){
+            sendUSART(garage);
+        }else if(receiveUSART==3){
+            sendUSART(hall);
+        }else if(receiveUSART==4){
+            sendUSART(entero1);
+        }else if(receiveUSART==5){
+            sendUSART((uint8_t) adcP*100/255);
+        }else if(receiveUSART==6){
+            sendUSART(mov);
+        }else if(receiveUSART==7){
+            sendUSART(alarm);
+        }
+        
         
         
         
@@ -253,6 +280,8 @@ void setup(void){
     PORTB = 0;
     PORTD = 0;
     I2C_Master_Init(100000);        // Inicializar Comuncación I2C
+    
+    initUSART(9600, 1, 1, 0);
     
     initLCD();
     clcLCD();

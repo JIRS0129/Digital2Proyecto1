@@ -63,15 +63,19 @@
 [v _cmdLCD cmdLCD `(v  1 e 1 0 ]
 "57
 [v _writeIntLCD writeIntLCD `(v  1 e 1 0 ]
-"62 C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Main\Master.X\mainM.c
+"64 C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Main\Master.X\mainM.c
 [v _isr isr `II(v  1 e 1 0 ]
-"71
+"78
 [v _main main `(v  1 e 1 0 ]
-"247
+"274
 [v _setup setup `(v  1 e 1 0 ]
+"5 C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Main\Master.X\USART.c
+[v _initUSART initUSART `(v  1 e 1 0 ]
+"43
+[v _sendUSART sendUSART `(v  1 e 1 0 ]
 "21 C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Main\Master.X/LCD.h
 [v _cursor cursor `uc  1 e 1 0 ]
-[s S237 . 1 `uc 1 RA0 1 0 :1:0 
+[s S227 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
 `uc 1 RA2 1 0 :1:2 
 `uc 1 RA3 1 0 :1:3 
@@ -81,13 +85,13 @@
 `uc 1 RA7 1 0 :1:7 
 ]
 "183 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h
-[u S246 . 1 `S237 1 . 1 0 ]
-[v _PORTAbits PORTAbits `VES246  1 e 1 @5 ]
+[u S236 . 1 `S227 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES236  1 e 1 @5 ]
 "228
 [v _PORTB PORTB `VEuc  1 e 1 @6 ]
 "352
 [v _PORTD PORTD `VEuc  1 e 1 @8 ]
-[s S499 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S514 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INTF 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -97,13 +101,13 @@
 `uc 1 GIE 1 0 :1:7 
 ]
 "482
-[s S508 . 1 `uc 1 . 1 0 :2:0 
+[s S523 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 TMR0IE 1 0 :1:5 
 ]
-[u S513 . 1 `S499 1 . 1 0 `S508 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES513  1 e 1 @11 ]
+[u S528 . 1 `S514 1 . 1 0 `S523 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES528  1 e 1 @11 ]
 [s S208 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
@@ -119,6 +123,32 @@
 [v _SSPBUF SSPBUF `VEuc  1 e 1 @19 ]
 "850
 [v _SSPCON SSPCON `VEuc  1 e 1 @20 ]
+[s S680 . 1 `uc 1 RX9D 1 0 :1:0 
+`uc 1 OERR 1 0 :1:1 
+`uc 1 FERR 1 0 :1:2 
+`uc 1 ADDEN 1 0 :1:3 
+`uc 1 CREN 1 0 :1:4 
+`uc 1 SREN 1 0 :1:5 
+`uc 1 RX9 1 0 :1:6 
+`uc 1 SPEN 1 0 :1:7 
+]
+"1068
+[s S689 . 1 `uc 1 RCD8 1 0 :1:0 
+`uc 1 . 1 0 :5:1 
+`uc 1 RC9 1 0 :1:6 
+]
+[s S693 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 nRC8 1 0 :1:6 
+]
+[s S696 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RC8_9 1 0 :1:6 
+]
+[u S699 . 1 `S680 1 . 1 0 `S689 1 . 1 0 `S693 1 . 1 0 `S696 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES699  1 e 1 @24 ]
+"1133
+[v _TXREG TXREG `VEuc  1 e 1 @25 ]
+"1140
+[v _RCREG RCREG `VEuc  1 e 1 @26 ]
 "1238
 [v _ADRESH ADRESH `VEuc  1 e 1 @30 ]
 [s S158 . 1 `uc 1 ADON 1 0 :1:0 
@@ -144,7 +174,7 @@
 ]
 [u S178 . 1 `S158 1 . 1 0 `S163 1 . 1 0 `S172 1 . 1 0 `S175 1 . 1 0 ]
 [v _ADCON0bits ADCON0bits `VES178  1 e 1 @31 ]
-[s S271 . 1 `uc 1 TRISA0 1 0 :1:0 
+[s S285 . 1 `uc 1 TRISA0 1 0 :1:0 
 `uc 1 TRISA1 1 0 :1:1 
 `uc 1 TRISA2 1 0 :1:2 
 `uc 1 TRISA3 1 0 :1:3 
@@ -154,11 +184,11 @@
 `uc 1 TRISA7 1 0 :1:7 
 ]
 "1433
-[u S280 . 1 `S271 1 . 1 0 ]
-[v _TRISAbits TRISAbits `VES280  1 e 1 @133 ]
+[u S294 . 1 `S285 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES294  1 e 1 @133 ]
 "1478
 [v _TRISB TRISB `VEuc  1 e 1 @134 ]
-[s S478 . 1 `uc 1 TRISB0 1 0 :1:0 
+[s S493 . 1 `uc 1 TRISB0 1 0 :1:0 
 `uc 1 TRISB1 1 0 :1:1 
 `uc 1 TRISB2 1 0 :1:2 
 `uc 1 TRISB3 1 0 :1:3 
@@ -168,8 +198,8 @@
 `uc 1 TRISB7 1 0 :1:7 
 ]
 "1495
-[u S487 . 1 `S478 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES487  1 e 1 @134 ]
+[u S502 . 1 `S493 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES502  1 e 1 @134 ]
 [s S26 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
@@ -184,15 +214,15 @@
 [v _TRISCbits TRISCbits `VES35  1 e 1 @135 ]
 "1602
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
-[s S448 . 1 `uc 1 TRISE0 1 0 :1:0 
+[s S463 . 1 `uc 1 TRISE0 1 0 :1:0 
 `uc 1 TRISE1 1 0 :1:1 
 `uc 1 TRISE2 1 0 :1:2 
 `uc 1 TRISE3 1 0 :1:3 
 ]
 "1677
-[u S453 . 1 `S448 1 . 1 0 ]
-[v _TRISEbits TRISEbits `VES453  1 e 1 @137 ]
-[s S531 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[u S468 . 1 `S463 1 . 1 0 ]
+[v _TRISEbits TRISEbits `VES468  1 e 1 @137 ]
+[s S546 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
 `uc 1 SSPIE 1 0 :1:3 
@@ -201,8 +231,8 @@
 `uc 1 ADIE 1 0 :1:6 
 ]
 "1718
-[u S539 . 1 `S531 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES539  1 e 1 @140 ]
+[u S554 . 1 `S546 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES554  1 e 1 @140 ]
 "1979
 [v _SSPCON2 SSPCON2 `VEuc  1 e 1 @145 ]
 [s S47 . 1 `uc 1 SEN 1 0 :1:0 
@@ -221,18 +251,53 @@
 [v _SSPADD SSPADD `VEuc  1 e 1 @147 ]
 "2177
 [v _SSPSTAT SSPSTAT `VEuc  1 e 1 @148 ]
-[s S561 . 1 `uc 1 . 1 0 :4:0 
+[s S724 . 1 `uc 1 TX9D 1 0 :1:0 
+`uc 1 TRMT 1 0 :1:1 
+`uc 1 BRGH 1 0 :1:2 
+`uc 1 SENDB 1 0 :1:3 
+`uc 1 SYNC 1 0 :1:4 
+`uc 1 TXEN 1 0 :1:5 
+`uc 1 TX9 1 0 :1:6 
+`uc 1 CSRC 1 0 :1:7 
+]
+"2582
+[s S733 . 1 `uc 1 TXD8 1 0 :1:0 
+`uc 1 . 1 0 :5:1 
+`uc 1 nTX8 1 0 :1:6 
+]
+[s S737 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 TX8_9 1 0 :1:6 
+]
+[u S740 . 1 `S724 1 . 1 0 `S733 1 . 1 0 `S737 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES740  1 e 1 @152 ]
+"2642
+[v _SPBRG SPBRG `VEuc  1 e 1 @153 ]
+"2704
+[v _SPBRGH SPBRGH `VEuc  1 e 1 @154 ]
+[s S576 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 VCFG0 1 0 :1:4 
 `uc 1 VCFG1 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 `uc 1 ADFM 1 0 :1:7 
 ]
 "2991
-[u S567 . 1 `S561 1 . 1 0 ]
-[v _ADCON1bits ADCON1bits `VES567  1 e 1 @159 ]
+[u S582 . 1 `S576 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES582  1 e 1 @159 ]
+[s S772 . 1 `uc 1 ABDEN 1 0 :1:0 
+`uc 1 WUE 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 BRG16 1 0 :1:3 
+`uc 1 SCKP 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 RCIDL 1 0 :1:6 
+`uc 1 ABDOVF 1 0 :1:7 
+]
+"3352
+[u S781 . 1 `S772 1 . 1 0 ]
+[v _BAUDCTLbits BAUDCTLbits `VES781  1 e 1 @391 ]
 "3387
 [v _ANSEL ANSEL `VEuc  1 e 1 @392 ]
-[s S415 . 1 `uc 1 ANS0 1 0 :1:0 
+[s S430 . 1 `uc 1 ANS0 1 0 :1:0 
 `uc 1 ANS1 1 0 :1:1 
 `uc 1 ANS2 1 0 :1:2 
 `uc 1 ANS3 1 0 :1:3 
@@ -242,11 +307,11 @@
 `uc 1 ANS7 1 0 :1:7 
 ]
 "3404
-[u S424 . 1 `S415 1 . 1 0 ]
-[v _ANSELbits ANSELbits `VES424  1 e 1 @392 ]
+[u S439 . 1 `S430 1 . 1 0 ]
+[v _ANSELbits ANSELbits `VES439  1 e 1 @392 ]
 "3449
 [v _ANSELH ANSELH `VEuc  1 e 1 @393 ]
-[s S461 . 1 `uc 1 ANS8 1 0 :1:0 
+[s S476 . 1 `uc 1 ANS8 1 0 :1:0 
 `uc 1 ANS9 1 0 :1:1 
 `uc 1 ANS10 1 0 :1:2 
 `uc 1 ANS11 1 0 :1:3 
@@ -254,8 +319,8 @@
 `uc 1 ANS13 1 0 :1:5 
 ]
 "3464
-[u S468 . 1 `S461 1 . 1 0 ]
-[v _ANSELHbits ANSELHbits `VES468  1 e 1 @393 ]
+[u S483 . 1 `S476 1 . 1 0 ]
+[v _ANSELHbits ANSELHbits `VES483  1 e 1 @393 ]
 "3896
 [v _GIE GIE `VEb  1 e 0 @95 ]
 "4040
@@ -274,41 +339,43 @@
 [v _TRISC4 TRISC4 `VEb  1 e 0 @1084 ]
 "358 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\doprnt.c
 [v _dpowers dpowers `DC[5]ui  1 s 10 dpowers ]
-"50 C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Main\Master.X\mainM.c
+"51 C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Main\Master.X\mainM.c
 [v _adcT adcT `uc  1 e 1 0 ]
 [v _adc adc `uc  1 e 1 0 ]
 [v _entero1 entero1 `uc  1 e 1 0 ]
 [v _dec1 dec1 `uc  1 e 1 0 ]
 [v _alarm alarm `uc  1 e 1 0 ]
 [v _hall hall `uc  1 e 1 0 ]
-"52
+"53
 [v _sensorF1 sensorF1 `f  1 e 4 0 ]
 [v _float1 float1 `f  1 e 4 0 ]
-"53
-[v _sensorF2 sensorF2 `f  1 e 4 0 ]
 "54
+[v _sensorF2 sensorF2 `f  1 e 4 0 ]
+"55
 [v _toggle toggle `uc  1 e 1 0 ]
 [v _count count `uc  1 e 1 0 ]
-"55
+"56
 [v _toggle2 toggle2 `uc  1 e 1 0 ]
 [v _count2 count2 `uc  1 e 1 0 ]
 [v _adcP adcP `uc  1 e 1 0 ]
 [v _signal signal `uc  1 e 1 0 ]
 [v _mov mov `uc  1 e 1 0 ]
-"56
+"57
 [v _toggle3 toggle3 `uc  1 e 1 0 ]
 [v _count3 count3 `uc  1 e 1 0 ]
 [v _ir ir `uc  1 e 1 0 ]
 [v _garage garage `uc  1 e 1 0 ]
-"57
+"58
 [v _antibounce antibounce `uc  1 e 1 0 ]
 [v _antibounce2 antibounce2 `uc  1 e 1 0 ]
 [v _screenCounter screenCounter `uc  1 e 1 0 ]
 [v _screenState screenState `uc  1 e 1 0 ]
-"71
+"59
+[v _receiveUSART receiveUSART `uc  1 e 1 0 ]
+"78
 [v _main main `(v  1 e 1 0 ]
 {
-"243
+"270
 } 0
 "57 C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Main\Master.X\LCD.c
 [v _writeIntLCD writeIntLCD `(v  1 e 1 0 ]
@@ -382,10 +449,19 @@
 [v ___lwdiv@dividend dividend `ui  1 p 2 5 ]
 "30
 } 0
-"247 C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Main\Master.X\mainM.c
+"274 C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Main\Master.X\mainM.c
 [v _setup setup `(v  1 e 1 0 ]
 {
-"265
+"294
+} 0
+"5 C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Main\Master.X\USART.c
+[v _initUSART initUSART `(v  1 e 1 0 ]
+{
+[v initUSART@baudrate baudrate `ui  1 p 2 3 ]
+[v initUSART@txint txint `uc  1 p 1 5 ]
+[v initUSART@rcint rcint `uc  1 p 1 6 ]
+[v initUSART@syncrono syncrono `uc  1 p 1 7 ]
+"41
 } 0
 "36 C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Main\Master.X\LCD.c
 [v _initLCD initLCD `(v  1 e 1 0 ]
@@ -432,6 +508,14 @@
 [v cmdLCD@cmd cmd `uc  1 a 1 5 ]
 "55
 } 0
+"43 C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Main\Master.X\USART.c
+[v _sendUSART sendUSART `(v  1 e 1 0 ]
+{
+[v sendUSART@data data `uc  1 a 1 wreg ]
+[v sendUSART@data data `uc  1 a 1 wreg ]
+[v sendUSART@data data `uc  1 a 1 4 ]
+"47
+} 0
 "10 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
 {
@@ -476,17 +560,17 @@
 "8 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S940 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S1145 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S945 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
-[u S948 . 4 `l 1 i 4 0 `d 1 f 4 0 `S940 1 fAsBytes 4 0 `S945 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S948  1 a 4 58 ]
+[s S1150 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
+[u S1153 . 4 `l 1 i 4 0 `d 1 f 4 0 `S1145 1 fAsBytes 4 0 `S1150 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S1153  1 a 4 58 ]
 "12
 [v ___flmul@grs grs `ul  1 a 4 52 ]
-[s S1017 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[s S1222 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S1020 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S1017 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S1020  1 a 2 62 ]
+[u S1225 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S1222 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S1225  1 a 2 62 ]
 "10
 [v ___flmul@bexp bexp `uc  1 a 1 57 ]
 "11
@@ -602,10 +686,10 @@
 {
 "35
 } 0
-"62 C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Main\Master.X\mainM.c
+"64 C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Main\Master.X\mainM.c
 [v _isr isr `II(v  1 e 1 0 ]
 {
-"67
+"74
 } 0
 "6 C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Main\Master.X\ADC.c
 [v _readADC readADC `(uc  1 e 1 0 ]

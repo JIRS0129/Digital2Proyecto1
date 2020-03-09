@@ -24,7 +24,7 @@ cstackBANK0 BANK0 1 23 23 2 1
 intentry CODE 0 4 4 A 2
 bssBANK0 BANK0 1 20 20 3 1
 bssCOMMON COMMON 1 7D 7D 1 1
-$C:\Users\JIRS0129\AppData\Local\Temp\seqg.o
+$C:\Users\JIRS0129\AppData\Local\Temp\sges.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 E E 3 2
 config CONFIG 0 2007 2007 2 2
@@ -73,17 +73,17 @@ STRING 241-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Slave3.X.production.o
-11 cinit CODE >971:C:\Users\JIRS0129\AppData\Local\Temp\seqg.
-11 cinit CODE >974:C:\Users\JIRS0129\AppData\Local\Temp\seqg.
-11 cinit CODE >997:C:\Users\JIRS0129\AppData\Local\Temp\seqg.
-12 cinit CODE >1000:C:\Users\JIRS0129\AppData\Local\Temp\seqg.
-13 cinit CODE >1001:C:\Users\JIRS0129\AppData\Local\Temp\seqg.
-14 cinit CODE >1002:C:\Users\JIRS0129\AppData\Local\Temp\seqg.
-15 cinit CODE >1003:C:\Users\JIRS0129\AppData\Local\Temp\seqg.
-16 cinit CODE >1004:C:\Users\JIRS0129\AppData\Local\Temp\seqg.
-17 cinit CODE >1010:C:\Users\JIRS0129\AppData\Local\Temp\seqg.
-17 cinit CODE >1012:C:\Users\JIRS0129\AppData\Local\Temp\seqg.
-18 cinit CODE >1013:C:\Users\JIRS0129\AppData\Local\Temp\seqg.
+11 cinit CODE >971:C:\Users\JIRS0129\AppData\Local\Temp\sges.
+11 cinit CODE >974:C:\Users\JIRS0129\AppData\Local\Temp\sges.
+11 cinit CODE >997:C:\Users\JIRS0129\AppData\Local\Temp\sges.
+12 cinit CODE >1000:C:\Users\JIRS0129\AppData\Local\Temp\sges.
+13 cinit CODE >1001:C:\Users\JIRS0129\AppData\Local\Temp\sges.
+14 cinit CODE >1002:C:\Users\JIRS0129\AppData\Local\Temp\sges.
+15 cinit CODE >1003:C:\Users\JIRS0129\AppData\Local\Temp\sges.
+16 cinit CODE >1004:C:\Users\JIRS0129\AppData\Local\Temp\sges.
+17 cinit CODE >1010:C:\Users\JIRS0129\AppData\Local\Temp\sges.
+17 cinit CODE >1012:C:\Users\JIRS0129\AppData\Local\Temp\sges.
+18 cinit CODE >1013:C:\Users\JIRS0129\AppData\Local\Temp\sges.
 4 intentry CODE >43:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Main\Slave3.X\mainS3.c
 1B text5 CODE >6:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Main\Slave3.X\Stepper.c
 1C text5 CODE >7:C:\Users\JIRS0129\Documents\UVG\Septimo Semestre\Digital 2\Proyecto1\Digital2Proyecto1\Main\Slave3.X\Stepper.c
@@ -285,20 +285,20 @@ __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 _BF 4A0 0 ABS 0 - dist/default/production\Slave3.X.production.o
 __Hstrings 0 0 ABS 0 strings -
 _PEIE 5E 0 ABS 0 - dist/default/production\Slave3.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\JIRS0129\AppData\Local\Temp\seqg.o
+___sp 0 0 STACK 2 stack C:\Users\JIRS0129\AppData\Local\Temp\sges.o
 _main 45C 0 CODE 0 maintext dist/default/production\Slave3.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\Slave3.X.production.o
-start 1C 0 CODE 0 init C:\Users\JIRS0129\AppData\Local\Temp\seqg.o
+start 1C 0 CODE 0 init C:\Users\JIRS0129\AppData\Local\Temp\sges.o
 __CFG_BOREN$OFF 0 0 ABS 0 - dist/default/production\Slave3.X.production.o
 __size_of_main 0 0 ABS 0 - dist/default/production\Slave3.X.production.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab C:\Users\JIRS0129\AppData\Local\Temp\seqg.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\JIRS0129\AppData\Local\Temp\seqg.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\JIRS0129\AppData\Local\Temp\seqg.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\JIRS0129\AppData\Local\Temp\seqg.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\JIRS0129\AppData\Local\Temp\seqg.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\JIRS0129\AppData\Local\Temp\seqg.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\JIRS0129\AppData\Local\Temp\sges.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\JIRS0129\AppData\Local\Temp\sges.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\JIRS0129\AppData\Local\Temp\sges.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\JIRS0129\AppData\Local\Temp\sges.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\JIRS0129\AppData\Local\Temp\sges.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\JIRS0129\AppData\Local\Temp\sges.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 wtemp0 7E 0 ABS 0 - dist/default/production\Slave3.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
@@ -322,7 +322,7 @@ _SSPBUF 13 0 ABS 0 - dist/default/production\Slave3.X.production.o
 _SSPCON 14 0 ABS 0 - dist/default/production\Slave3.X.production.o
 _TRISC3 43B 0 ABS 0 - dist/default/production\Slave3.X.production.o
 _TRISC4 43C 0 ABS 0 - dist/default/production\Slave3.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\JIRS0129\AppData\Local\Temp\seqg.o
+___int_sp 0 0 STACK 2 stack C:\Users\JIRS0129\AppData\Local\Temp\sges.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -377,7 +377,7 @@ saved_w 7E 0 ABS 0 - dist/default/production\Slave3.X.production.o
 __CFG_FOSC$INTRC_NOCLKOUT 0 0 ABS 0 - dist/default/production\Slave3.X.production.o
 __end_of_ISR 366 0 CODE 0 text4 dist/default/production\Slave3.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\JIRS0129\AppData\Local\Temp\seqg.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\JIRS0129\AppData\Local\Temp\sges.o
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
 _wave_drive 36 0 CODE 0 text5 dist/default/production\Slave3.X.production.o
 __pmaintext 45C 0 CODE 0 maintext dist/default/production\Slave3.X.production.o
@@ -388,8 +388,8 @@ __Lconfig 400E 0 CONFIG 0 config -
 __CFG_CP$OFF 0 0 ABS 0 - dist/default/production\Slave3.X.production.o
 I2C_Slave_Init@address 23 0 BANK0 1 cstackBANK0 dist/default/production\Slave3.X.production.o
 __CFG_WDTE$OFF 0 0 ABS 0 - dist/default/production\Slave3.X.production.o
-stackhi 0 0 ABS 0 - C:\Users\JIRS0129\AppData\Local\Temp\seqg.o
-stacklo 0 0 ABS 0 - C:\Users\JIRS0129\AppData\Local\Temp\seqg.o
+stackhi 0 0 ABS 0 - C:\Users\JIRS0129\AppData\Local\Temp\sges.o
+stacklo 0 0 ABS 0 - C:\Users\JIRS0129\AppData\Local\Temp\sges.o
 __CFG_LVP$OFF 0 0 ABS 0 - dist/default/production\Slave3.X.production.o
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
