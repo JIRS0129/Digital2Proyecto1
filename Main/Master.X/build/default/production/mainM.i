@@ -2695,7 +2695,6 @@ unsigned short I2C_Master_Read(unsigned short a);
 void I2C_Slave_Init(uint8_t address);
 # 35 "mainM.c" 2
 
-
 # 1 "./LCD.h" 1
 
 
@@ -2719,60 +2718,52 @@ void cmdLCD(uint8_t cmd);
 void writeIntLCD(uint8_t numero);
 void writeIntLCD16(uint16_t numero);
 void writeFloat(uint8_t integer, uint8_t decimals, uint8_t initPos);
+# 36 "mainM.c" 2
+
+# 1 "./ADC.h" 1
+# 10 "./ADC.h"
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\c90\\stdint.h" 1 3
+# 10 "./ADC.h" 2
+
+
+unsigned char adcValue = 0;
+
+
+void configADC(uint8_t FOSC);
+uint8_t readADC(void);
+void selCanal(uint8_t channel);
+void configCanal(uint8_t channel);
 # 37 "mainM.c" 2
-
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\c90\\math.h" 1 3
-
-
-
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\__unsupported.h" 1 3
-# 4 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\c90\\math.h" 2 3
-# 30 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\c90\\math.h" 3
-extern double fabs(double);
-extern double floor(double);
-extern double ceil(double);
-extern double modf(double, double *);
-extern double sqrt(double);
-extern double atof(const char *);
-extern double sin(double) ;
-extern double cos(double) ;
-extern double tan(double) ;
-extern double asin(double) ;
-extern double acos(double) ;
-extern double atan(double);
-extern double atan2(double, double) ;
-extern double log(double);
-extern double log10(double);
-extern double pow(double, double) ;
-extern double exp(double) ;
-extern double sinh(double) ;
-extern double cosh(double) ;
-extern double tanh(double);
-extern double eval_poly(double, const double *, int);
-extern double frexp(double, int *);
-extern double ldexp(double, int);
-extern double fmod(double, double);
-extern double trunc(double);
-extern double round(double);
-# 38 "mainM.c" 2
 # 48 "mainM.c"
 void setup(void);
 
-uint8_t adcT, entero1, dec1, alarm, hall;
+uint8_t adcT, adc, entero1, dec1, alarm, hall;
 uint8_t entero2, dec2;
 float sensorF1, float1;
 float sensorF2, float2;
 uint8_t toggle, s3, count = 0;
 uint8_t toggle2, count2, adcP, signal, mov = 0;
-float lux;
+uint8_t toggle3, count3, ir, garage = 0;
+uint8_t antibounce, antibounce2, screenCounter, screenState = 0;
 
+
+
+
+void __attribute__((picinterrupt(""))) isr(void){
+    if(ADCON0bits.GO_DONE == 0){
+        adc = readADC();
+        PIR1bits.ADIF = 0;
+    }
+}
 
 
 
 void main(void) {
     setup();
     while(1){
-
+        if(ADCON0bits.GO_DONE == 0){
+           ADCON0bits.GO_DONE = 1;
+        }
 
         count = toggle%3;
         I2C_Master_Start();
@@ -2788,6 +2779,7 @@ void main(void) {
         I2C_Master_Stop();
         _delay((unsigned long)((10)*(4000000/4000.0)));
 
+
         count2 = toggle2%3;
         I2C_Master_Start();
         I2C_Master_Write(0x61);
@@ -2801,12 +2793,21 @@ void main(void) {
         toggle2++;
         I2C_Master_Stop();
         _delay((unsigned long)((10)*(4000000/4000.0)));
-# 101 "mainM.c"
-        if(signal){
-            PORTDbits.RD2 = 1;
-        }else{
-            PORTDbits.RD2 = 0;
+
+
+        count3 = toggle3%2;
+        I2C_Master_Start();
+        I2C_Master_Write(0x71);
+        if(count3 == 0){
+            ir = I2C_Master_Read(0);
+        }else if(count3 == 1){
+            garage = I2C_Master_Read(0);
         }
+        toggle3++;
+        I2C_Master_Stop();
+        _delay((unsigned long)((10)*(4000000/4000.0)));
+
+
 
         sensorF1 = (float) adcT * 5/255;
         sensorF2 = (float) sensorF1/0.01;
@@ -2814,16 +2815,119 @@ void main(void) {
         float1 = (sensorF2 - entero1)*100;
         dec1 = (int) float1;
 
-        setCursorLCD(2, 1);
-        writeIntLCD(adcT);
-        writeCharLCD(' ');
-        writeCharLCD(' ');
-        setCursorLCD(2, 6);
-        writeIntLCD(alarm);
-        setCursorLCD(2, 8);
-        writeIntLCD(hall);
-        writeFloat(entero1, dec1, 10);
-        writeStrLCD("  ");
+
+        if(PORTAbits.RA1){
+            antibounce = 1;
+        }
+        if(PORTAbits.RA1 == 0 && antibounce){
+            screenCounter++;
+            screenCounter = screenCounter%3;
+            antibounce = 0;
+        }
+
+
+        if(PORTAbits.RA2){
+            antibounce2 = 1;
+        }
+        if(PORTAbits.RA2 == 0 && antibounce2){
+            screenState++;
+            screenState = screenState%2;
+            antibounce2 = 0;
+        }
+
+        if(signal){
+            PORTAbits.RA0 = 1;
+        }else{
+            PORTAbits.RA0 = 0;
+        }
+
+        if(entero1 >= 60){
+            PORTAbits.RA4 = 1;
+        }else{
+            PORTAbits.RA4 = 0;
+        }
+
+
+
+        if(screenState == 0){
+            setCursorLCD(1, 1);
+            if(screenCounter == 0){
+                writeStrLCD("TEMP ");
+                writeIntLCD(entero1);
+                writeCharLCD('°');
+                writeCharLCD('C');
+            }else if(screenCounter == 1){
+                writeStrLCD("LUZ ");
+                writeIntLCD((uint8_t) adcP*100/255);
+                writeCharLCD(' ');
+                writeCharLCD('%');
+            }
+            writeStrLCD("           ");
+
+
+            setCursorLCD(2, 1);
+            if(screenCounter == 0){
+                writeStrLCD("PUERTA ");
+                if(hall){
+                    writeStrLCD("ABIERTA");
+                }else{
+                    writeStrLCD("CERRADA");
+                }
+                writeCharLCD(' ');
+            }else if(screenCounter == 1){
+                if(mov){
+                    writeStrLCD("MOVIMIENTO");
+                }else{
+                    writeStrLCD("SIN MOVIMIENTO");
+                }
+            }else if(screenCounter == 2){
+                if(garage){
+                    writeStrLCD("GARAGE ABIERTO");
+                }else{
+                    writeStrLCD("GARAGE CERRADO");
+                }
+            }
+            writeStrLCD("           ");
+        }else{
+            setCursorLCD(1, 1);
+            if(screenCounter == 0){
+                writeStrLCD("PUERTA ");
+                if(hall){
+                    writeStrLCD("ABIERTA");
+                }else{
+                    writeStrLCD("CERRADA");
+                }
+                writeCharLCD(' ');
+            }else if(screenCounter == 1){
+                if(mov){
+                    writeStrLCD("MOVIMIENTO");
+                }else{
+                    writeStrLCD("SIN MOVIMIENTO");
+                }
+            }
+            setCursorLCD(2, 1);
+            if(screenCounter == 0){
+                writeStrLCD("ALARMA ");
+                if(alarm){
+                    writeStrLCD("ACTIVA");
+                }else{
+                    writeStrLCD("DESCATIVADA");
+                }
+                writeCharLCD(' ');
+            }else if(screenCounter == 1){
+                if(signal){
+                    writeStrLCD("PUERTA ABIERTA");
+                }else{
+                    writeStrLCD("PUERTA CERRADA");
+                }
+            }else if(screenCounter == 2){
+                if(garage){
+                    writeStrLCD("GARAGE ABIERTO");
+                }else{
+                    writeStrLCD("GARAGE CERRADO");
+                }
+            }
+        }
     }
     return;
 }
@@ -2843,11 +2947,9 @@ void setup(void){
     initLCD();
     clcLCD();
 
-
-    setCursorLCD(1, 1);
-    writeStrLCD("S1");
-    setCursorLCD(1, 7);
-    writeStrLCD("S2");
-    setCursorLCD(1, 13);
-    writeStrLCD("S3");
+    TRISAbits.TRISA1 = 1;
+    TRISAbits.TRISA2 = 1;
+    TRISAbits.TRISA0 = 0;
+    TRISAbits.TRISA4 = 0;
+    TRISAbits.TRISA5 = 0;
 }

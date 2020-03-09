@@ -33,9 +33,9 @@
 #include <stdint.h>
 #include <pic16f887.h>
 #include "I2C.h"
-#include <xc.h>
 #include "LCD.h"
-#include <math.h>
+#include "ADC.h"
+#include <xc.h>
 //*****************************************************************************
 // Definición de variables
 //*****************************************************************************
@@ -47,21 +47,33 @@
 //*****************************************************************************
 void setup(void);
 
-uint8_t adcT, entero1, dec1, alarm, hall;
+uint8_t adcT, adc, entero1, dec1, alarm, hall;
 uint8_t entero2, dec2;
 float sensorF1, float1;
 float sensorF2, float2;
 uint8_t toggle, s3, count = 0;
 uint8_t toggle2, count2, adcP, signal, mov = 0;
-float lux;
+uint8_t toggle3, count3, ir, garage = 0;
+uint8_t antibounce, antibounce2, screenCounter, screenState = 0;
 
+//*****************************************************************************
+// Código de Interrupción 
+//*****************************************************************************
+void __interrupt() isr(void){
+    if(ADCON0bits.GO_DONE == 0){   //If ADC interrupt
+        adc = readADC();                    //Activate flag
+        PIR1bits.ADIF = 0;          //Clear ADC flag
+    }
+}
 //*****************************************************************************
 // Main
 //*****************************************************************************
 void main(void) {
     setup();
     while(1){
-        
+        if(ADCON0bits.GO_DONE == 0){
+           ADCON0bits.GO_DONE = 1; 
+        }
         
         count = toggle%3;
         I2C_Master_Start();
@@ -76,6 +88,7 @@ void main(void) {
         toggle++;
         I2C_Master_Stop();
         __delay_ms(10); 
+        
         
         count2 = toggle2%3;
         I2C_Master_Start();
@@ -92,17 +105,19 @@ void main(void) {
         __delay_ms(10); 
         
         
-        /*setCursorLCD(2, 1);
-        writeIntLCD(adcP);
-        setCursorLCD(2, 5);
-        writeIntLCD(mov);
-        setCursorLCD(2, 7);
-        writeIntLCD(signal);*/
-        if(signal){
-            PORTDbits.RD2 = 1;
-        }else{
-            PORTDbits.RD2 = 0;
+        count3 = toggle3%2;
+        I2C_Master_Start();
+        I2C_Master_Write(0x71);
+        if(count3 == 0){
+            ir = I2C_Master_Read(0);
+        }else if(count3 == 1){
+            garage = I2C_Master_Read(0);
         }
+        toggle3++;
+        I2C_Master_Stop();
+        __delay_ms(10); 
+        
+        
         //Potentiometer's processing
         sensorF1 = (float) adcT * 5/255; //Conversion from 0 to 5V
         sensorF2 = (float) sensorF1/0.01;
@@ -110,16 +125,119 @@ void main(void) {
         float1 = (sensorF2 - entero1)*100;  //Subtraction and multiplication to leave the 2 decimals as integers
         dec1 = (int) float1;                //Takes the integer (which is the 2 decimals from convertion)
         
-        setCursorLCD(2, 1);
-        writeIntLCD(adcT);
-        writeCharLCD(' ');
-        writeCharLCD(' ');
-        setCursorLCD(2, 6);
-        writeIntLCD(alarm);
-        setCursorLCD(2, 8);
-        writeIntLCD(hall);
-        writeFloat(entero1, dec1, 10);       //Writes first number starting from position 1
-        writeStrLCD("  ");
+        
+        if(PORTAbits.RA1){
+            antibounce = 1;
+        }
+        if(PORTAbits.RA1 == 0 && antibounce){
+            screenCounter++;
+            screenCounter = screenCounter%3;
+            antibounce = 0;
+        }
+        
+        
+        if(PORTAbits.RA2){
+            antibounce2 = 1;
+        }
+        if(PORTAbits.RA2 == 0 && antibounce2){
+            screenState++;
+            screenState = screenState%2;
+            antibounce2 = 0;
+        }
+        
+        if(signal){
+            PORTAbits.RA0 = 1;
+        }else{
+            PORTAbits.RA0 = 0;
+        }
+        
+        if(entero1 >= 60){
+            PORTAbits.RA4 = 1;
+        }else{
+            PORTAbits.RA4 = 0;
+        }
+        
+        
+        
+        if(screenState == 0){
+            setCursorLCD(1, 1);
+            if(screenCounter == 0){
+                writeStrLCD("TEMP ");
+                writeIntLCD(entero1);
+                writeCharLCD('°');
+                writeCharLCD('C');
+            }else if(screenCounter == 1){
+                writeStrLCD("LUZ ");
+                writeIntLCD((uint8_t) adcP*100/255);
+                writeCharLCD(' ');
+                writeCharLCD('%');
+            }
+            writeStrLCD("           ");
+            
+            
+            setCursorLCD(2, 1);
+            if(screenCounter == 0){
+                writeStrLCD("PUERTA ");
+                if(hall){
+                    writeStrLCD("ABIERTA");
+                }else{
+                    writeStrLCD("CERRADA");
+                }
+                writeCharLCD(' ');
+            }else if(screenCounter == 1){
+                if(mov){
+                    writeStrLCD("MOVIMIENTO");
+                }else{
+                    writeStrLCD("SIN MOVIMIENTO");
+                }
+            }else if(screenCounter == 2){
+                if(garage){
+                    writeStrLCD("GARAGE ABIERTO");
+                }else{
+                    writeStrLCD("GARAGE CERRADO");
+                }
+            }
+            writeStrLCD("           ");
+        }else{
+            setCursorLCD(1, 1);
+            if(screenCounter == 0){
+                writeStrLCD("PUERTA ");
+                if(hall){
+                    writeStrLCD("ABIERTA");
+                }else{
+                    writeStrLCD("CERRADA");
+                }
+                writeCharLCD(' ');
+            }else if(screenCounter == 1){
+                if(mov){
+                    writeStrLCD("MOVIMIENTO");
+                }else{
+                    writeStrLCD("SIN MOVIMIENTO");
+                }
+            }
+            setCursorLCD(2, 1);
+            if(screenCounter == 0){
+                writeStrLCD("ALARMA ");
+                if(alarm){
+                    writeStrLCD("ACTIVA");
+                }else{
+                    writeStrLCD("DESCATIVADA");
+                }
+                writeCharLCD(' ');
+            }else if(screenCounter == 1){
+                if(signal){
+                    writeStrLCD("PUERTA ABIERTA");
+                }else{
+                    writeStrLCD("PUERTA CERRADA");
+                }
+            }else if(screenCounter == 2){
+                if(garage){
+                    writeStrLCD("GARAGE ABIERTO");
+                }else{
+                    writeStrLCD("GARAGE CERRADO");
+                }
+            }
+        }
     }
     return;
 }
@@ -139,11 +257,9 @@ void setup(void){
     initLCD();
     clcLCD();
     
-    //Write first row that won't be modified
-    setCursorLCD(1, 1);
-    writeStrLCD("S1");
-    setCursorLCD(1, 7);
-    writeStrLCD("S2");
-    setCursorLCD(1, 13);
-    writeStrLCD("S3");
+    TRISAbits.TRISA1 = 1;
+    TRISAbits.TRISA2 = 1;
+    TRISAbits.TRISA0 = 0;
+    TRISAbits.TRISA4 = 0;
+    TRISAbits.TRISA5 = 0;
 }
