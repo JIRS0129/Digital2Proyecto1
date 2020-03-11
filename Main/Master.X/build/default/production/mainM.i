@@ -2774,6 +2774,24 @@ void __attribute__((picinterrupt(""))) isr(void){
     if(PIR1bits.RCIF == 1){
         PORTAbits.RA0 = 1;
         receiveUSART = RCREG;
+
+        if(receiveUSART==0){
+            sendUSART(68);
+        }else if(receiveUSART==1){
+            sendUSART(93);
+        }else if(receiveUSART==2){
+            sendUSART(32);
+        }else if(receiveUSART==3){
+            sendUSART(46);
+        }else if(receiveUSART==4){
+            sendUSART(120);
+        }else if(receiveUSART==5){
+            sendUSART(3);
+        }else if(receiveUSART==6){
+            sendUSART(99);
+        }else if(receiveUSART==7){
+            sendUSART(14);
+        }
     }
 }
 
@@ -2867,29 +2885,7 @@ void main(void) {
         }else{
             PORTAbits.RA4 = 0;
         }
-
-
-        if(receiveUSART==0){
-            sendUSART(signal);
-        }else if(receiveUSART==1){
-            sendUSART(PORTAbits.RA4);
-        }else if(receiveUSART==2){
-            sendUSART(garage);
-        }else if(receiveUSART==3){
-            sendUSART(hall);
-        }else if(receiveUSART==4){
-            sendUSART(entero1);
-        }else if(receiveUSART==5){
-            sendUSART((uint8_t) adcP*100/255);
-        }else if(receiveUSART==6){
-            sendUSART(mov);
-        }else if(receiveUSART==7){
-            sendUSART(alarm);
-        }
-
-
-
-
+# 223 "mainM.c"
         if(screenState == 0){
             setCursorLCD(1, 1);
             if(screenCounter == 0){

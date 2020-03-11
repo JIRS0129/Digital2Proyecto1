@@ -48,8 +48,8 @@ uint8_t entero1, entero2 = 0;
 uint8_t dec1, dec2 = 0;
 float float1, float2 = 0;
 float sensorF1, sensorF2 = 0;
-uint8_t current = 0;
-uint8_t signal, ventilador, garage, hall, temp, luz, mov, alarm, bandera;
+uint8_t current, dataInSPI = 0;
+uint8_t signal, ventilador, garage, hall, temp, luz, mov, alarm, bandera=0;
 
 void setup(void);
 
@@ -77,6 +77,28 @@ void __interrupt() ISR(void){
         current = current%8;
         bandera = 0;
     }
+    if(SSPIF == 1){
+        
+        dataInSPI = spiRead();
+        if(dataInSPI == 0){
+            spiWrite(signal);
+        }else if(dataInSPI == 1){
+            spiWrite(ventilador);
+        }else if(dataInSPI == 2){
+            spiWrite(garage);
+        }else if(dataInSPI == 3){
+            spiWrite(hall);
+        }else if(dataInSPI == 4){
+            spiWrite(temp);
+        }else if(dataInSPI == 5){
+            spiWrite(luz);
+        }else if(dataInSPI == 6){
+            spiWrite(mov);
+        }else if(dataInSPI == 7){
+            spiWrite(alarm);
+        }
+        SSPIF = 0;
+    }
 }
 
 //*****************************************************************************
@@ -95,16 +117,6 @@ void main(void) {
             bandera = 1;
         }
         
-        
-//        spiWrite(1);
-//        sensor1 = spiRead();
-//
-//        __delay_ms(10);
-//
-//
-//        spiWrite(2);
-//        sensor2 = spiRead();
-
         __delay_ms(10);
     }
     return;
@@ -113,17 +125,24 @@ void main(void) {
 // Función de Inicialización
 //*****************************************************************************
 void setup(void){
-    ANSEL = 0;
-    ANSELH = 0;
-    TRISC2 = 0;
+    PORTA = 0;
+    PORTB = 0;
+    PORTC = 0;
+    PORTD = 0;
+    PORTE = 0;
+    TRISA = 0;
+    TRISB = 0;
+    TRISC = 0;
     TRISCbits.TRISC5 = 0;
     TRISCbits.TRISC4 = 1;
-    TRISA = 0b10000000;
-    TRISB = 0;
     TRISD = 0;
-    PORTB = 0;
-    PORTD = 0;
-    PORTCbits.RC2 = 1;
-    spiInit(SPI_MASTER_OSC_DIV4, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
+    TRISE = 0;
+    
+    INTCONbits.GIE = 1;         // Habilitamos interrupciones
+    INTCONbits.PEIE = 1;        // Habilitamos interrupciones PEIE
+    PIR1bits.SSPIF = 0;         // Borramos bandera interrupción MSSP
+    PIE1bits.SSPIE = 1;         // Habilitamos interrupción MSSP
+   
+    spiInit(SPI_SLAVE_SS_DIS, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_HIGH, SPI_ACTIVE_2_IDLE);
 
 }

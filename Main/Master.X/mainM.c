@@ -70,6 +70,24 @@ void __interrupt() isr(void){
     if(PIR1bits.RCIF == 1){         //If data received by USART
         PORTAbits.RA0 = 1;
         receiveUSART = RCREG;      //Read
+        
+        if(receiveUSART==0){
+            sendUSART(signal);
+        }else if(receiveUSART==1){
+            sendUSART(PORTAbits.RA4);
+        }else if(receiveUSART==2){
+            sendUSART(garage);
+        }else if(receiveUSART==3){
+            sendUSART(hall);
+        }else if(receiveUSART==4){
+            sendUSART(entero1);
+        }else if(receiveUSART==5){
+            sendUSART((uint8_t) adcP*100/255);
+        }else if(receiveUSART==6){
+            sendUSART(mov);
+        }else if(receiveUSART==7){
+            sendUSART(alarm);
+        }
     }
 }
 //*****************************************************************************
@@ -163,27 +181,6 @@ void main(void) {
         }else{
             PORTAbits.RA4 = 0;
         }
-        
-        
-        if(receiveUSART==0){
-            sendUSART(signal);
-        }else if(receiveUSART==1){
-            sendUSART(PORTAbits.RA4);
-        }else if(receiveUSART==2){
-            sendUSART(garage);
-        }else if(receiveUSART==3){
-            sendUSART(hall);
-        }else if(receiveUSART==4){
-            sendUSART(entero1);
-        }else if(receiveUSART==5){
-            sendUSART((uint8_t) adcP*100/255);
-        }else if(receiveUSART==6){
-            sendUSART(mov);
-        }else if(receiveUSART==7){
-            sendUSART(alarm);
-        }
-        
-        
         
         
         if(screenState == 0){
